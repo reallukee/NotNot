@@ -60,7 +60,7 @@ namespace NotNot
             this.RichTextBox.Name = "RichTextBox";
             this.RichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
             this.RichTextBox.ShortcutsEnabled = false;
-            this.RichTextBox.Size = new System.Drawing.Size(474, 125);
+            this.RichTextBox.Size = new System.Drawing.Size(474, 425);
             this.RichTextBox.TabIndex = 0;
             this.RichTextBox.Text = "";
             // 
@@ -70,7 +70,7 @@ namespace NotNot
             this.Action_Panel.Controls.Add(this.Action_Menu);
             this.Action_Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Action_Panel.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Action_Panel.Location = new System.Drawing.Point(0, 125);
+            this.Action_Panel.Location = new System.Drawing.Point(0, 425);
             this.Action_Panel.Name = "Action_Panel";
             this.Action_Panel.Size = new System.Drawing.Size(474, 50);
             this.Action_Panel.TabIndex = 1;
@@ -198,14 +198,14 @@ namespace NotNot
             this.Separator2.Dock = System.Windows.Forms.DockStyle.Right;
             this.Separator2.Location = new System.Drawing.Point(474, 0);
             this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(1, 175);
+            this.Separator2.Size = new System.Drawing.Size(1, 475);
             this.Separator2.TabIndex = 2;
             // 
             // Separator1
             // 
             this.Separator1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Separator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Separator1.Location = new System.Drawing.Point(0, 124);
+            this.Separator1.Location = new System.Drawing.Point(0, 424);
             this.Separator1.Name = "Separator1";
             this.Separator1.Size = new System.Drawing.Size(474, 1);
             this.Separator1.TabIndex = 3;
@@ -232,7 +232,7 @@ namespace NotNot
             this.Controls.Add(this.Separator2);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Viewer";
-            this.Size = new System.Drawing.Size(475, 175);
+            this.Size = new System.Drawing.Size(475, 475);
             this.Action_Panel.ResumeLayout(false);
             this.Action_Panel.PerformLayout();
             this.Action_Menu.ResumeLayout(false);

@@ -7,17 +7,17 @@
     <RootNamespace>NotNot</RootNamespace>
     <StartupObject>NotNot.Program</StartupObject>
     <ApplicationIcon>icon\notnot_icon.ico</ApplicationIcon>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
     <Authors>Realluke</Authors>
     <Product>NotNot</Product>
     <Description>NotNot</Description>
     <Company>Realluke</Company>
     <Copyright>Realluke</Copyright>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageIcon>notnot_icon.png</PackageIcon>
-    <PackageIconUrl />
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>notnotkey.pfx</AssemblyOriginatorKeyFile>
+    <RepositoryUrl>https://github.com/reallukee/NotNot</RepositoryUrl>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

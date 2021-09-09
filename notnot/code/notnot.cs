@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace NotNot
 {
@@ -29,24 +30,47 @@ namespace NotNot
         private void NotNot_Load(object Sender, EventArgs E)
         {
             // NotNot_Load(object Sender, EventArgs E)
-            Viewers.Controls.Add(new Viewer());
+            Viewer NewViewer = new Viewer();
+            NewViewer.Name = $"{Index}";
+            Viewers.Controls.Add(NewViewer);
+            Index++;
 
-            foreach (Control C in Viewers.Controls)
-            {
-                // foreach
-                C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
-            }
-
-
-            if (Viewers.Controls.Count == 0)
+            if (Viewers.Controls.Count <= 3)
             {
                 // true
-                MinimumSize = new Size(500, 500);
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                }
+
+                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
             }
             else
             {
                 // false
-                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                }
+
+
+                switch (Viewers.Controls.Count)
+                {
+                    // switch
+                    case 4:
+                        // case
+                        Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                        break;
+
+                    case 5:
+                        // case
+                        Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                        break;
+                }
+
+                MinimumSize = new Size(1500, 800);
             }
         }
 
@@ -54,22 +78,51 @@ namespace NotNot
         private void NotNot_Resize(object Sender, EventArgs E)
         {
             // NotNot_Resize(object Sender, EventArgs E)
-            foreach (Control C in Viewers.Controls)
-            {
-                // foreach
-                C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
-            }
-
-
-            if (Viewers.Controls.Count == 0)
+            if (Viewers.Controls.Count >= 1)
             {
                 // true
-                MinimumSize = new Size(500, 500);
+                if (Viewers.Controls.Count <= 3)
+                {
+                    // true
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                    }
+
+                    MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                }
+                else
+                {
+                    // false
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                    }
+
+
+                    switch (Viewers.Controls.Count)
+                    {
+                        // switch
+                        case 4:
+                            // case
+                            Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                            break;
+
+                        case 5:
+                            // case
+                            Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                            break;
+                    }
+
+                    MinimumSize = new Size(1500, 800);
+                }
             }
             else
             {
                 // false
-                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                MinimumSize = new Size(500, 500);
             }
         }
 
@@ -86,7 +139,23 @@ namespace NotNot
                     Action_Menu_LessOpacity.Enabled = true;
                 }
 
+                
+                foreach (Form F in Application.OpenForms)
+                {
+                    // foreach
+                    if (F.Name == "Notification")
+                    {
+                        // true
+                        F.Dispose();
+                        break;
+                    }
+                }
+
                 Opacity += 0.1;
+                Form Notify = new Notification($"Opacity: {Math.Round(Opacity * 10)}0%");
+                Notify.Name = "Notification";
+                Notify.Opacity = Opacity;
+                Notify.Show();
 
                 if (Opacity == 100)
                 {
@@ -109,7 +178,23 @@ namespace NotNot
                     Action_Menu_MoreOpacity.Enabled = true;
                 }
 
+
+                foreach (Form F in Application.OpenForms)
+                {
+                    // foreach
+                    if (F.Name == "Notification")
+                    {
+                        // true
+                        F.Dispose();
+                        break;
+                    }
+                }
+
                 Opacity -= 0.1;
+                Form Notify = new Notification($"Opacity: {Math.Round(Opacity * 10)}0%");
+                Notify.Name = "Notification";
+                Notify.Opacity = Opacity;
+                Notify.Show();
 
                 if (Opacity == 30)
                 {
@@ -135,6 +220,23 @@ namespace NotNot
                 Action_Menu_AlwaysOnTop.Text = "";
                 TopMost = true;
             }
+
+
+            foreach (Form F in Application.OpenForms)
+            {
+                // foreach
+                if (F.Name == "Notification")
+                {
+                    // true
+                    F.Dispose();
+                    break;
+                }
+            }
+
+            Form Notify = new Notification($"Always on top: {TopMost.ToString().ToUpper()}");
+            Notify.Name = "Notification";
+            Notify.Opacity = Opacity;
+            Notify.Show();
         }
 
 
@@ -153,8 +255,38 @@ namespace NotNot
                 // false
                 Action_Menu_FullScreen.Text = "";
                 FormBorderStyle = FormBorderStyle.Sizable;
-                WindowState = FormWindowState.Maximized;
+                WindowState = FormWindowState.Normal;
             }
+
+
+            foreach (Form F in Application.OpenForms)
+            {
+                // foreach
+                if (F.Name == "Notification")
+                {
+                    // true
+                    F.Dispose();
+                    break;
+                }
+            }
+
+
+            if (FormBorderStyle == FormBorderStyle.None && WindowState == FormWindowState.Maximized)
+            {
+                // true
+                Form Notify = new Notification($"Full screen: TRUE");
+                Notify.Name = "Notification";
+                Notify.Opacity = Opacity;
+                Notify.Show();
+            }
+            else
+            {
+                // false
+                Form Notify = new Notification($"Full screen: FALSE");
+                Notify.Name = "Notification";
+                Notify.Opacity = Opacity;
+                Notify.Show();
+            }      
         }
 
 
@@ -166,20 +298,50 @@ namespace NotNot
             Viewers.Controls.Add(NewViewer);
             Index++;
 
-            foreach (Control C in Viewers.Controls)
+            if (Viewers.Controls.Count <= 3)
             {
-                // foreach
-                C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
-            }
+                // true
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                }
 
-            MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+            }
+            else
+            {
+                // false
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                }
+
+
+                switch (Viewers.Controls.Count)
+                {
+                    // switch
+                    case 4:
+                        // case
+                        Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                        break;
+
+                    case 5:
+                        // case
+                        Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                        break;
+                }
+
+                MinimumSize = new Size(1500, 800);
+            }
         }
 
 
         private void Viewers_ControlAdded(object Sender, ControlEventArgs E)
         {
             // Viewers_ControlAdded(object Sender, ControlEventArgs E)
-            if (Viewers.Controls.Count >= 3)
+            if (Viewers.Controls.Count >= 6)
             {
                 // true
                 Action_Menu_AddViewer.Enabled = false;
@@ -197,7 +359,7 @@ namespace NotNot
         private void Viewers_ControlRemoved(object Sender, ControlEventArgs E)
         {
             // Viewers_ControlRemoved(object Sender, ControlEventArgs E)
-            if (Viewers.Controls.Count <= 3)
+            if (Viewers.Controls.Count <= 6)
             {
                 // true
                 Action_Menu_AddViewer.Enabled = true;
@@ -209,6 +371,13 @@ namespace NotNot
                 // true
                 Version.Visible = true;
             }
+        }
+
+
+        private void Version_Click(object Sender, EventArgs E)
+        {
+            // Version_Click(object Sender, EventArgs E)
+            Process.Start("https://github.com/reallukee/NotNot");
         }
     }
 }

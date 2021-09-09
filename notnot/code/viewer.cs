@@ -35,7 +35,23 @@ namespace NotNot
                     Action_Menu_LessZoom.Enabled = true;
                 }
 
+
+                foreach (Form F in Application.OpenForms)
+                {
+                    // foreach
+                    if (F.Name == "Notification")
+                    {
+                        // true
+                        F.Dispose();
+                        break;
+                    }
+                }
+
                 RichTextBox.ZoomFactor += 1;
+                Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x");
+                Notify.Name = "Notification";
+                Notify.Opacity = Application.OpenForms["NotNot"].Opacity;
+                Notify.Show();
 
                 if (RichTextBox.ZoomFactor == 5)
                 {
@@ -58,7 +74,23 @@ namespace NotNot
                     Action_Menu_MoreZoom.Enabled = true;
                 }
 
+
+                foreach (Form F in Application.OpenForms)
+                {
+                    // foreach
+                    if (F.Name == "Notification")
+                    {
+                        // true
+                        F.Dispose();
+                        break;
+                    }
+                }
+
                 RichTextBox.ZoomFactor -= 1;
+                Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x");
+                Notify.Name = "Notification";
+                Notify.Opacity = Application.OpenForms["NotNot"].Opacity;
+                Notify.Show();
 
                 if (RichTextBox.ZoomFactor == 1)
                 {
@@ -76,22 +108,41 @@ namespace NotNot
             Control Viewers = NotNotForm.Controls["Viewers"];
             Viewers.Controls.Remove(Viewers.Controls[this.Name]);
 
-            foreach (Control C in Viewers.Controls)
-            {
-                // foreach
-                C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
-            }
-
-
-            if (Viewers.Controls.Count == 0)
+            if (Viewers.Controls.Count <= 3)
             {
                 // true
-                NotNotForm.MinimumSize = new Size(500, 500);
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                }
+
+                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
             }
             else
             {
                 // false
-                NotNotForm.MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                }
+
+
+                switch (Viewers.Controls.Count)
+                {
+                    case 4:
+                        // case
+                        Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                        break;
+
+                    case 5:
+                        // case
+                        Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                        break;
+                }
+
+                MinimumSize = new Size(1500, 800);
             }
         }
 
