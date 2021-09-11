@@ -4,9 +4,9 @@
 "ProjectType" = "8:{978C614F-708E-4E1A-B201-565925725DBA}"
 "IsWebType" = "8:FALSE"
 "ProjectName" = "8:setup"
-"LanguageId" = "3:1040"
+"LanguageId" = "3:0"
 "CodePage" = "3:1252"
-"UILanguageId" = "3:1040"
+"UILanguageId" = "3:0"
 "SccProjectName" = "8:"
 "SccLocalPath" = "8:"
 "SccAuxPath" = "8:"
@@ -15,32 +15,44 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_30D25B70B0764DD68A395EF241258AAE"
+        "MsmKey" = "8:_24641D04272248EB9F29BE0F3FF91C27"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_6AB0F5C69CAF4BD4838E0ED6FB0AB301"
+        "MsmKey" = "8:_283C5137812041A59D4FB52ACDB970E0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_74A521E9F89B4CE6A8704252A27EF3F0"
+        "MsmKey" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_91756A7707DB47E8A1FDCA1997A055A8"
+        "MsmKey" = "8:_4C068BF1902249B6BA7242756A12F80D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_55167541AFAC42189A43FB35E4C4D5A5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_77EFAC48D931486EA3F57296D369566D"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6AB0F5C69CAF4BD4838E0ED6FB0AB301"
+        "OwnerKey" = "8:_24641D04272248EB9F29BE0F3FF91C27"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -126,7 +138,7 @@
         {
             "LaunchCondition"
             {
-                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_E724F8743B2D4E97B1A63680222D9B12"
+                "{A06ECF26-33A3-4562-8140-9B0E340D4F24}:_9E53D51AB61A41BEABFAF5C38F7A7B54"
                 {
                 "Name" = "8:.NET Framework"
                 "Message" = "8:[VSDNETMSG]"
@@ -138,34 +150,14 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_30D25B70B0764DD68A395EF241258AAE"
-            {
-            "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\notnot.exe"
-            "TargetName" = "8:notnot.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_6AB0F5C69CAF4BD4838E0ED6FB0AB301"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_24641D04272248EB9F29BE0F3FF91C27"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:notnot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=84c20b230b1186a0, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_6AB0F5C69CAF4BD4838E0ED6FB0AB301"
+                    "_24641D04272248EB9F29BE0F3FF91C27"
                     {
                     "Name" = "8:notnot.dll"
                     "Attributes" = "3:512"
@@ -189,7 +181,67 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_74A521E9F89B4CE6A8704252A27EF3F0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_283C5137812041A59D4FB52ACDB970E0"
+            {
+            "SourcePath" = "8:..\\icons\\notnot_icon64.ico"
+            "TargetName" = "8:notnot_icon64.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
+            {
+            "SourcePath" = "8:..\\icons\\notnot_banner.bmp"
+            "TargetName" = "8:notnot_banner.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C068BF1902249B6BA7242756A12F80D"
+            {
+            "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\notnot.exe"
+            "TargetName" = "8:notnot.exe"
+            "Tag" = "8:"
+            "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_55167541AFAC42189A43FB35E4C4D5A5"
             {
             "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\notnot.runtimeconfig.json"
             "TargetName" = "8:notnot.runtimeconfig.json"
@@ -209,10 +261,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_91756A7707DB47E8A1FDCA1997A055A8"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_77EFAC48D931486EA3F57296D369566D"
             {
-            "SourcePath" = "8:..\\..\\allicon\\notnot_icon.ico"
-            "TargetName" = "8:icon.ico"
+            "SourcePath" = "8:..\\LICENSE.rtf"
+            "TargetName" = "8:LICENSE.rtf"
             "Tag" = "8:"
             "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
             "Condition" = "8:"
@@ -278,7 +330,7 @@
         }
         "MsiBootstrapper"
         {
-        "LangId" = "3:1040"
+        "LangId" = "3:0"
         "RequiresElevation" = "11:FALSE"
         }
         "Product"
@@ -286,7 +338,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NotNot"
         "ProductCode" = "8:{C34B7FD9-F9CA-44A7-A80A-E5A0C400E401}"
-        "PackageCode" = "8:{3C0627CC-BF9E-4666-BB43-B9313BCDA6F0}"
+        "PackageCode" = "8:{07D20FF0-D256-4AF4-A478-6A66BDE77567}"
         "UpgradeCode" = "8:{93D33297-BB6F-45E2-82A0-C5E4383AE8FA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -303,7 +355,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:NotNot"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_91756A7707DB47E8A1FDCA1997A055A8"
+        "ARPPRODUCTICON" = "8:_283C5137812041A59D4FB52ACDB970E0"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -414,10 +466,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_30D25B70B0764DD68A395EF241258AAE"
+            "Target" = "8:_4C068BF1902249B6BA7242756A12F80D"
             "Folder" = "8:_9FA033AC653145DBB26A36C912D5E249"
             "WorkingFolder" = "8:_5054626B9C0E444888B4AE9861D64F31"
-            "Icon" = "8:_91756A7707DB47E8A1FDCA1997A055A8"
+            "Icon" = "8:_283C5137812041A59D4FB52ACDB970E0"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F04D46D2A6B9454F94189F679AAE2E56"
@@ -428,10 +480,10 @@
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_30D25B70B0764DD68A395EF241258AAE"
+            "Target" = "8:_4C068BF1902249B6BA7242756A12F80D"
             "Folder" = "8:_4DE8D7495B54426C87C6A14851533363"
             "WorkingFolder" = "8:_5054626B9C0E444888B4AE9861D64F31"
-            "Icon" = "8:_91756A7707DB47E8A1FDCA1997A055A8"
+            "Icon" = "8:_283C5137812041A59D4FB52ACDB970E0"
             "Feature" = "8:"
             }
         }
@@ -461,7 +513,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "UpdateText"
@@ -505,7 +558,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -532,9 +586,57 @@
             "Attributes" = "3:1"
                 "Dialogs"
                 {
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_81241275F11949D5A50B19DED9CC07F2"
+                    {
+                    "Sequence" = "3:200"
+                    "DisplayName" = "8:Contratto di licenza"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_77EFAC48D931486EA3F57296D369566D"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_89134C9969874CB2BF878133CF45690F"
                     {
-                    "Sequence" = "3:300"
+                    "Sequence" = "3:400"
                     "DisplayName" = "8:Conferma installazione"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -549,14 +651,15 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_DBC1BD6EF13645BBAD3526362C2DAB60"
                     {
-                    "Sequence" = "3:200"
+                    "Sequence" = "3:300"
                     "DisplayName" = "8:Cartella di installazione"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -571,7 +674,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "InstallAllUsersVisible"
@@ -591,7 +695,7 @@
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_DD07587F363147F5B37DB80AD61CF1A3"
                     {
-                    "Sequence" = "3:100"
+                    "Sequence" = "3:110"
                     "DisplayName" = "8:Introduzione"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -606,7 +710,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -669,7 +774,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "ShowProgress"
@@ -704,7 +810,7 @@
                 {
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_047B8AE16ADE4F98A68B831CCE0585B2"
                     {
-                    "Sequence" = "3:300"
+                    "Sequence" = "3:400"
                     "DisplayName" = "8:Conferma installazione"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -719,14 +825,63 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                        }
+                    }
+                    "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_2C9DF6EB62014AE196A1B993E69BFCD8"
+                    {
+                    "Sequence" = "3:200"
+                    "DisplayName" = "8:Contratto di licenza"
+                    "UseDynamicProperties" = "11:TRUE"
+                    "IsDependency" = "11:FALSE"
+                    "SourcePath" = "8:<VsdDialogDir>\\VsdAdminLicenseDlg.wid"
+                        "Properties"
+                        {
+                            "BannerBitmap"
+                            {
+                            "Name" = "8:BannerBitmap"
+                            "DisplayName" = "8:#1001"
+                            "Description" = "8:#1101"
+                            "Type" = "3:8"
+                            "ContextData" = "8:Bitmap"
+                            "Attributes" = "3:4"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "EulaText"
+                            {
+                            "Name" = "8:EulaText"
+                            "DisplayName" = "8:#1008"
+                            "Description" = "8:#1108"
+                            "Type" = "3:6"
+                            "ContextData" = "8:"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:2"
+                            "Value" = "8:_77EFAC48D931486EA3F57296D369566D"
+                            "UsePlugInResources" = "11:TRUE"
+                            }
+                            "Sunken"
+                            {
+                            "Name" = "8:Sunken"
+                            "DisplayName" = "8:#1007"
+                            "Description" = "8:#1107"
+                            "Type" = "3:5"
+                            "ContextData" = "8:4;True=4;False=0"
+                            "Attributes" = "3:0"
+                            "Setting" = "3:0"
+                            "Value" = "3:4"
+                            "DefaultValue" = "3:4"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_A929DFCB321E438FB93368E4896AD281"
                     {
-                    "Sequence" = "3:100"
+                    "Sequence" = "3:110"
                     "DisplayName" = "8:Introduzione"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -741,7 +896,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                             "CopyrightWarning"
@@ -774,7 +930,7 @@
                     }
                     "{688940B3-5CA9-4162-8DEE-2993FA9D8CBC}:_B2D45F56E56E466CA678CC3AD575DD68"
                     {
-                    "Sequence" = "3:200"
+                    "Sequence" = "3:300"
                     "DisplayName" = "8:Cartella di installazione"
                     "UseDynamicProperties" = "11:TRUE"
                     "IsDependency" = "11:FALSE"
@@ -789,7 +945,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }
@@ -820,7 +977,8 @@
                             "Type" = "3:8"
                             "ContextData" = "8:Bitmap"
                             "Attributes" = "3:4"
-                            "Setting" = "3:1"
+                            "Setting" = "3:2"
+                            "Value" = "8:_4A81D8AE5CF840E7A2BDBDA7C342F4E1"
                             "UsePlugInResources" = "11:TRUE"
                             }
                         }

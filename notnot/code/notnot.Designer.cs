@@ -52,7 +52,7 @@ namespace NotNot
             this.Action_Panel.Font = new System.Drawing.Font("Segoe MDL2 Assets", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Action_Panel.Location = new System.Drawing.Point(0, 0);
             this.Action_Panel.Name = "Action_Panel";
-            this.Action_Panel.Size = new System.Drawing.Size(1482, 61);
+            this.Action_Panel.Size = new System.Drawing.Size(1557, 61);
             this.Action_Panel.TabIndex = 0;
             // 
             // Action_Menu
@@ -71,7 +71,7 @@ namespace NotNot
             this.Action_Menu.Location = new System.Drawing.Point(0, 0);
             this.Action_Menu.Name = "Action_Menu";
             this.Action_Menu.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
-            this.Action_Menu.Size = new System.Drawing.Size(1482, 61);
+            this.Action_Menu.Size = new System.Drawing.Size(1557, 61);
             this.Action_Menu.TabIndex = 0;
             // 
             // Action_Menu_AlwaysOnTop
@@ -108,6 +108,7 @@ namespace NotNot
             // Action_Menu_MoreOpacity
             // 
             this.Action_Menu_MoreOpacity.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.Action_Menu_MoreOpacity.Enabled = false;
             this.Action_Menu_MoreOpacity.Name = "Action_Menu_MoreOpacity";
             this.Action_Menu_MoreOpacity.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.Action_Menu_MoreOpacity.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up)));
@@ -132,7 +133,7 @@ namespace NotNot
             this.Viewers.Location = new System.Drawing.Point(0, 62);
             this.Viewers.Margin = new System.Windows.Forms.Padding(0);
             this.Viewers.Name = "Viewers";
-            this.Viewers.Size = new System.Drawing.Size(1482, 691);
+            this.Viewers.Size = new System.Drawing.Size(1557, 741);
             this.Viewers.TabIndex = 2;
             this.Viewers.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.Viewers_ControlAdded);
             this.Viewers.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.Viewers_ControlRemoved);
@@ -141,15 +142,14 @@ namespace NotNot
             // 
             this.Version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Version.AutoSize = true;
-            this.Version.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
-            this.Version.ForeColor = System.Drawing.Color.Blue;
-            this.Version.Location = new System.Drawing.Point(14, 719);
+            this.Version.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Version.ForeColor = System.Drawing.Color.Black;
+            this.Version.Location = new System.Drawing.Point(14, 769);
             this.Version.Margin = new System.Windows.Forms.Padding(5);
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(173, 20);
             this.Version.TabIndex = 3;
             this.Version.Text = "NotNot 1.1.0 by Realluke";
-            this.Version.Click += new System.EventHandler(this.Version_Click);
             // 
             // Separator
             // 
@@ -157,21 +157,21 @@ namespace NotNot
             this.Separator.Dock = System.Windows.Forms.DockStyle.Top;
             this.Separator.Location = new System.Drawing.Point(0, 61);
             this.Separator.Name = "Separator";
-            this.Separator.Size = new System.Drawing.Size(1482, 1);
+            this.Separator.Size = new System.Drawing.Size(1557, 1);
             this.Separator.TabIndex = 5;
             // 
             // NotNot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1482, 753);
+            this.ClientSize = new System.Drawing.Size(1557, 803);
             this.Controls.Add(this.Version);
             this.Controls.Add(this.Viewers);
             this.Controls.Add(this.Separator);
             this.Controls.Add(this.Action_Panel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Action_Menu;
-            this.MinimumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(525, 525);
             this.Name = "NotNot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NotNot";

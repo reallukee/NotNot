@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -11,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Devices;
 
 namespace NotNot
 {
@@ -24,6 +28,11 @@ namespace NotNot
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new NotNot());
+
+            /*
+            MyApplication MyApplication = new MyApplication();
+            MyApplication.Run(Environment.GetCommandLineArgs());
+            */
         }
     }
 }

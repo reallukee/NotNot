@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -11,7 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
-using System.Diagnostics;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Devices;
 
 namespace NotNot
 {
@@ -23,17 +26,15 @@ namespace NotNot
             InitializeComponent();
         }
 
-
-        Int32 Index = 0;
-
+        public Int32 ViewerCount = 1;
 
         private void NotNot_Load(object Sender, EventArgs E)
         {
             // NotNot_Load(object Sender, EventArgs E)
             Viewer NewViewer = new Viewer();
-            NewViewer.Name = $"{Index}";
+            NewViewer.Name = $"{ViewerCount}";
             Viewers.Controls.Add(NewViewer);
-            Index++;
+            ViewerCount++;
 
             if (Viewers.Controls.Count <= 3)
             {
@@ -44,7 +45,7 @@ namespace NotNot
                     C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
                 }
 
-                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
             }
             else
             {
@@ -70,7 +71,16 @@ namespace NotNot
                         break;
                 }
 
-                MinimumSize = new Size(1500, 800);
+                MinimumSize = new Size(1500, 850);
+            }
+
+
+            ViewerCount = 1;
+            foreach (Control C in Viewers.Controls)
+            {
+                // foreach
+                C.Name = $"{ViewerCount}";
+                ViewerCount++;
             }
         }
 
@@ -90,7 +100,7 @@ namespace NotNot
                         C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
                     }
 
-                    MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
                 }
                 else
                 {
@@ -116,13 +126,13 @@ namespace NotNot
                             break;
                     }
 
-                    MinimumSize = new Size(1500, 800);
+                    MinimumSize = new Size(1575, 850);
                 }
             }
             else
             {
                 // false
-                MinimumSize = new Size(500, 500);
+                MinimumSize = new Size(525, 525);
             }
         }
 
@@ -130,7 +140,7 @@ namespace NotNot
         private void Action_Menu_MoreOpacity_Click(object Sender, EventArgs E)
         {
             // Action_Menu_MoreOpacity_Click(object Sender, EventArgs E)
-            if (Opacity < 1.0)
+            if (Opacity <= 1.0)
             {
                 // true
                 if (Action_Menu_LessOpacity.Enabled == false)
@@ -157,7 +167,7 @@ namespace NotNot
                 Notify.Opacity = Opacity;
                 Notify.Show();
 
-                if (Opacity == 100)
+                if (Opacity == 1.0)
                 {
                     // true
                     Action_Menu_MoreOpacity.Enabled = false;
@@ -169,7 +179,7 @@ namespace NotNot
         private void Action_Menu_LessOpacity_Click(object Sender, EventArgs E)
         {
             // Action_Menu_LessOpacity_Click(object Sender, EventArgs E)
-            if (Opacity > 0.3)
+            if (Opacity >= 0.3)
             {
                 // true
                 if (Action_Menu_MoreOpacity.Enabled == false)
@@ -196,7 +206,7 @@ namespace NotNot
                 Notify.Opacity = Opacity;
                 Notify.Show();
 
-                if (Opacity == 30)
+                if (Opacity == 0.3)
                 {
                     // true
                     Action_Menu_LessOpacity.Enabled = false;
@@ -294,9 +304,9 @@ namespace NotNot
         {
             // Action_Menu_AddViewer_Click(object Sender, EventArgs E)
             Viewer NewViewer = new Viewer();
-            NewViewer.Name = $"{Index}";
+            NewViewer.Name = $"{ViewerCount}";
             Viewers.Controls.Add(NewViewer);
-            Index++;
+            ViewerCount++;
 
             if (Viewers.Controls.Count <= 3)
             {
@@ -307,7 +317,7 @@ namespace NotNot
                     C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
                 }
 
-                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
             }
             else
             {
@@ -333,7 +343,16 @@ namespace NotNot
                         break;
                 }
 
-                MinimumSize = new Size(1500, 800);
+                MinimumSize = new Size(1575, 850);
+            }
+
+
+            ViewerCount = 1;
+            foreach (Control C in Viewers.Controls)
+            {
+                // foreach
+                C.Name = $"{ViewerCount}";
+                ViewerCount++;
             }
         }
 
@@ -371,13 +390,6 @@ namespace NotNot
                 // true
                 Version.Visible = true;
             }
-        }
-
-
-        private void Version_Click(object Sender, EventArgs E)
-        {
-            // Version_Click(object Sender, EventArgs E)
-            Process.Start("https://github.com/reallukee/NotNot");
         }
     }
 }

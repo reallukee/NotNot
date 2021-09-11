@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -11,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Devices;
 
 namespace NotNot
 {
@@ -104,45 +108,65 @@ namespace NotNot
         private void Action_Menu_Close_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Close_Click(object Sender, EventArgs E)
-            Form NotNotForm = Application.OpenForms["NotNot"];
-            Control Viewers = NotNotForm.Controls["Viewers"];
-            Viewers.Controls.Remove(Viewers.Controls[this.Name]);
+            Form Form = Application.OpenForms["NotNot"];
+            Control Viewers = Form.Controls["Viewers"];
+            Viewers.Controls.Remove(Viewers.Controls[Name]);
+            Int32 ViewerCount = 1;
 
-            if (Viewers.Controls.Count <= 3)
+            if (Viewers.Controls.Count >= 1)
             {
                 // true
-                foreach (Control C in Viewers.Controls)
+                if (Viewers.Controls.Count <= 3)
                 {
-                    // foreach
-                    C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
-                }
+                    // true
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                    }
 
-                MinimumSize = new Size(500 * Viewers.Controls.Count, 500);
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                }
+                else
+                {
+                    // false
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                    }
+
+
+                    switch (Viewers.Controls.Count)
+                    {
+                        // switch
+                        case 4:
+                            // case
+                            Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                            break;
+
+                        case 5:
+                            // case
+                            Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                            break;
+                    }
+
+                    MinimumSize = new Size(1575, 850);
+                }
             }
             else
             {
                 // false
-                foreach (Control C in Viewers.Controls)
-                {
-                    // foreach
-                    C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
-                }
+                MinimumSize = new Size(525, 525);
+            }
 
 
-                switch (Viewers.Controls.Count)
-                {
-                    case 4:
-                        // case
-                        Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
-                        break;
-
-                    case 5:
-                        // case
-                        Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
-                        break;
-                }
-
-                MinimumSize = new Size(1500, 800);
+            ViewerCount = 1;
+            foreach (Control C in Viewers.Controls)
+            {
+                // foreach
+                C.Name = $"{ViewerCount}";
+                ViewerCount++;
             }
         }
 
@@ -201,6 +225,13 @@ namespace NotNot
         {
             // Action_Menu_Paste_Click(object Sender, EventArgs E)
             RichTextBox.Paste();
+        }
+
+
+        private void Action_Menu_Delete_Click(object Sender, EventArgs E)
+        {
+            // Action_Menu_Delete_Click(object Sender, EventArgs E)
+            RichTextBox.SelectedText = "";
         }
     }
 }

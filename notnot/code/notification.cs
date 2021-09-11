@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
@@ -11,6 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.ApplicationServices;
+using Microsoft.VisualBasic.Devices;
 
 namespace NotNot
 {
@@ -24,9 +28,6 @@ namespace NotNot
         }
 
 
-        Int32 Time = 0;
-
-
         private void Notification_Shown(object Sender, EventArgs E)
         {
             // Notification_Shown(object Sender, EventArgs E)
@@ -38,15 +39,24 @@ namespace NotNot
         private void Expiration_Tick(object Sender, EventArgs E)
         {
             // Expiration_Tick(object Sender, EventArgs E)
-            if (Time == 5)
+            if (Expiration.Interval == 500)
             {
                 // true
-                Dispose();
+                Expiration.Interval = 50;
             }
             else
             {
                 // false
-                Time += 1;
+                if (Opacity >= 0.1)
+                {
+                    // true
+                    Opacity -= 0.05;
+                }
+                else
+                {
+                    // false
+                    Dispose();
+                }
             }
         }
     }

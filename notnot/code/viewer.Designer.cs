@@ -40,6 +40,7 @@ namespace NotNot
             this.Action_Menu_Cut = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_Copy = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_Paste = new System.Windows.Forms.ToolStripMenuItem();
+            this.Action_Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_MoreZoom = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_LessZoom = new System.Windows.Forms.ToolStripMenuItem();
             this.Separator2 = new System.Windows.Forms.Panel();
@@ -52,15 +53,14 @@ namespace NotNot
             // 
             // RichTextBox
             // 
+            this.RichTextBox.AcceptsTab = true;
             this.RichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RichTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.RichTextBox.EnableAutoDragDrop = true;
             this.RichTextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.RichTextBox.Location = new System.Drawing.Point(0, 0);
             this.RichTextBox.Name = "RichTextBox";
             this.RichTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
-            this.RichTextBox.ShortcutsEnabled = false;
-            this.RichTextBox.Size = new System.Drawing.Size(474, 425);
+            this.RichTextBox.Size = new System.Drawing.Size(524, 474);
             this.RichTextBox.TabIndex = 0;
             this.RichTextBox.Text = "";
             // 
@@ -70,9 +70,9 @@ namespace NotNot
             this.Action_Panel.Controls.Add(this.Action_Menu);
             this.Action_Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Action_Panel.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Action_Panel.Location = new System.Drawing.Point(0, 425);
+            this.Action_Panel.Location = new System.Drawing.Point(0, 475);
             this.Action_Panel.Name = "Action_Panel";
-            this.Action_Panel.Size = new System.Drawing.Size(474, 50);
+            this.Action_Panel.Size = new System.Drawing.Size(524, 50);
             this.Action_Panel.TabIndex = 1;
             // 
             // Action_Menu
@@ -91,12 +91,13 @@ namespace NotNot
             this.Action_Menu_Cut,
             this.Action_Menu_Copy,
             this.Action_Menu_Paste,
+            this.Action_Menu_Delete,
             this.Action_Menu_MoreZoom,
             this.Action_Menu_LessZoom});
             this.Action_Menu.Location = new System.Drawing.Point(0, 0);
             this.Action_Menu.Name = "Action_Menu";
             this.Action_Menu.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
-            this.Action_Menu.Size = new System.Drawing.Size(474, 50);
+            this.Action_Menu.Size = new System.Drawing.Size(524, 50);
             this.Action_Menu.TabIndex = 0;
             // 
             // Action_Menu_Close
@@ -172,6 +173,14 @@ namespace NotNot
             this.Action_Menu_Paste.Text = "";
             this.Action_Menu_Paste.Click += new System.EventHandler(this.Action_Menu_Paste_Click);
             // 
+            // Action_Menu_Delete
+            // 
+            this.Action_Menu_Delete.Name = "Action_Menu_Delete";
+            this.Action_Menu_Delete.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+            this.Action_Menu_Delete.Size = new System.Drawing.Size(43, 46);
+            this.Action_Menu_Delete.Text = "";
+            this.Action_Menu_Delete.Click += new System.EventHandler(this.Action_Menu_Delete_Click);
+            // 
             // Action_Menu_MoreZoom
             // 
             this.Action_Menu_MoreZoom.Name = "Action_Menu_MoreZoom";
@@ -184,6 +193,7 @@ namespace NotNot
             // 
             // Action_Menu_LessZoom
             // 
+            this.Action_Menu_LessZoom.Enabled = false;
             this.Action_Menu_LessZoom.Name = "Action_Menu_LessZoom";
             this.Action_Menu_LessZoom.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
             this.Action_Menu_LessZoom.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
@@ -196,18 +206,18 @@ namespace NotNot
             // 
             this.Separator2.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Separator2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Separator2.Location = new System.Drawing.Point(474, 0);
+            this.Separator2.Location = new System.Drawing.Point(524, 0);
             this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(1, 475);
+            this.Separator2.Size = new System.Drawing.Size(1, 525);
             this.Separator2.TabIndex = 2;
             // 
             // Separator1
             // 
             this.Separator1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.Separator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Separator1.Location = new System.Drawing.Point(0, 424);
+            this.Separator1.Location = new System.Drawing.Point(0, 474);
             this.Separator1.Name = "Separator1";
-            this.Separator1.Size = new System.Drawing.Size(474, 1);
+            this.Separator1.Size = new System.Drawing.Size(524, 1);
             this.Separator1.TabIndex = 3;
             // 
             // Ofd
@@ -226,13 +236,13 @@ namespace NotNot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.Separator1);
             this.Controls.Add(this.RichTextBox);
+            this.Controls.Add(this.Separator1);
             this.Controls.Add(this.Action_Panel);
             this.Controls.Add(this.Separator2);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Viewer";
-            this.Size = new System.Drawing.Size(475, 475);
+            this.Size = new System.Drawing.Size(525, 525);
             this.Action_Panel.ResumeLayout(false);
             this.Action_Panel.PerformLayout();
             this.Action_Menu.ResumeLayout(false);
@@ -260,5 +270,6 @@ namespace NotNot
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_Paste;
         private System.Windows.Forms.OpenFileDialog Ofd;
         private System.Windows.Forms.SaveFileDialog Sfd;
+        private System.Windows.Forms.ToolStripMenuItem Action_Menu_Delete;
     }
 }
