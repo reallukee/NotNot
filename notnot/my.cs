@@ -39,7 +39,7 @@ namespace NotNot
         protected override void OnCreateMainForm()
         {
             // OnCreteMainForm()
-            // MainForm =
+            MainForm = new NotNot();
         }
 
 
@@ -53,14 +53,20 @@ namespace NotNot
         void MyApplication_Startup(Object Sender, StartupEventArgs E)
         {
             // MyApplication_Startup(Object Sender, StartupEventArgs E)
-
+            NotNot Form = MainForm as NotNot;
         }
 
 
         void MyApplication_StartupNextInstance(Object Sender, StartupNextInstanceEventArgs E)
         {
             // MyApplication_StartupNextInstance(Object Sender, StartupNextInstanceEventArgs E)
+            NotNot Form = MainForm as NotNot;
 
+            if (E.CommandLine.Count > 1)
+            {
+                // true
+                Form.FromMy(E.CommandLine[1]);
+            }
         }
 
 

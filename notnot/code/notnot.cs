@@ -26,6 +26,28 @@ namespace NotNot
             InitializeComponent();
         }
 
+
+        protected override void OnLoad(EventArgs E)
+        {
+            // OnLoad(EventArgs E)
+            base.OnLoad(E);
+
+            if (Environment.GetCommandLineArgs().Count() > 1)
+            {
+                // true
+                FromMy(Environment.GetCommandLineArgs()[1]);
+            }
+
+            BringToFront();
+        }
+
+
+        public void FromMy(string Args)
+        {
+            // FromMy(string Args)
+            MessageBox.Show(Args);
+        }
+
         public Int32 ViewerCount = 1;
 
         private void NotNot_Load(object Sender, EventArgs E)

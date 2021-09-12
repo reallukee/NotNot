@@ -24,15 +24,18 @@ namespace NotNot
         static void Main()
         {
             // Main()
+            /*
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new NotNot());
+            */
 
-            /*
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             MyApplication MyApplication = new MyApplication();
             MyApplication.Run(Environment.GetCommandLineArgs());
-            */
         }
     }
 }
