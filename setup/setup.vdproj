@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_24641D04272248EB9F29BE0F3FF91C27"
+        "MsmKey" = "8:_23E7703B1A2E4EA19D88311964FE9B59"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,26 +33,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4C068BF1902249B6BA7242756A12F80D"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_55167541AFAC42189A43FB35E4C4D5A5"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_77EFAC48D931486EA3F57296D369566D"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_24641D04272248EB9F29BE0F3FF91C27"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -75,7 +57,7 @@
         "InstallerBootstrapper" = "3:2"
             "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
             {
-            "Enabled" = "11:TRUE"
+            "Enabled" = "11:FALSE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
@@ -107,7 +89,7 @@
         "InstallerBootstrapper" = "3:2"
             "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
             {
-            "Enabled" = "11:TRUE"
+            "Enabled" = "11:FALSE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
@@ -150,21 +132,10 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_24641D04272248EB9F29BE0F3FF91C27"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23E7703B1A2E4EA19D88311964FE9B59"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:notnot, Version=1.0.0.0, Culture=neutral, PublicKeyToken=84c20b230b1186a0, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_24641D04272248EB9F29BE0F3FF91C27"
-                    {
-                    "Name" = "8:notnot.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\notnot.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\publish\\notnot.exe"
+            "TargetName" = "8:notnot.exe"
             "Tag" = "8:"
             "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
             "Condition" = "8:"
@@ -205,46 +176,6 @@
             {
             "SourcePath" = "8:..\\icons\\notnot_banner.bmp"
             "TargetName" = "8:notnot_banner.bmp"
-            "Tag" = "8:"
-            "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C068BF1902249B6BA7242756A12F80D"
-            {
-            "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\notnot.exe"
-            "TargetName" = "8:notnot.exe"
-            "Tag" = "8:"
-            "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_55167541AFAC42189A43FB35E4C4D5A5"
-            {
-            "SourcePath" = "8:..\\notnot\\bin\\Release\\net5.0-windows\\notnot.runtimeconfig.json"
-            "TargetName" = "8:notnot.runtimeconfig.json"
             "Tag" = "8:"
             "Folder" = "8:_5054626B9C0E444888B4AE9861D64F31"
             "Condition" = "8:"
@@ -338,7 +269,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NotNot"
         "ProductCode" = "8:{C34B7FD9-F9CA-44A7-A80A-E5A0C400E401}"
-        "PackageCode" = "8:{1F812A9C-BA95-46BD-A20C-450D9E98CE2C}"
+        "PackageCode" = "8:{CD9C4C41-EB7B-4C57-BD0D-56B3B26E01DA}"
         "UpgradeCode" = "8:{93D33297-BB6F-45E2-82A0-C5E4383AE8FA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -862,11 +793,11 @@
             {
             "Name" = "8:NotNot"
             "Arguments" = "8:"
-            "Description" = "8:NotNot"
+            "Description" = "8:NotNot is a text viewer with variable visibility."
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_4C068BF1902249B6BA7242756A12F80D"
+            "Target" = "8:_23E7703B1A2E4EA19D88311964FE9B59"
             "Folder" = "8:_9FA033AC653145DBB26A36C912D5E249"
             "WorkingFolder" = "8:_5054626B9C0E444888B4AE9861D64F31"
             "Icon" = "8:_283C5137812041A59D4FB52ACDB970E0"
@@ -876,11 +807,11 @@
             {
             "Name" = "8:NotNot"
             "Arguments" = "8:"
-            "Description" = "8:NotNot"
+            "Description" = "8:NotNot is a text viewer with variable visibility."
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
-            "Target" = "8:_4C068BF1902249B6BA7242756A12F80D"
+            "Target" = "8:_23E7703B1A2E4EA19D88311964FE9B59"
             "Folder" = "8:_4DE8D7495B54426C87C6A14851533363"
             "WorkingFolder" = "8:_5054626B9C0E444888B4AE9861D64F31"
             "Icon" = "8:_283C5137812041A59D4FB52ACDB970E0"

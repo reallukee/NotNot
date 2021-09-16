@@ -54,6 +54,8 @@ namespace NotNot
                 RichTextBox.ZoomFactor += 1;
                 Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x");
                 Notify.Name = "Notification";
+                Rectangle R = Screen.PrimaryScreen.Bounds;
+                Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
                 Notify.Opacity = Application.OpenForms["NotNot"].Opacity;
                 Notify.Show();
 
@@ -93,6 +95,8 @@ namespace NotNot
                 RichTextBox.ZoomFactor -= 1;
                 Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x");
                 Notify.Name = "Notification";
+                Rectangle R = Screen.PrimaryScreen.Bounds;
+                Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
                 Notify.Opacity = Application.OpenForms["NotNot"].Opacity;
                 Notify.Show();
 
@@ -177,7 +181,34 @@ namespace NotNot
             if (Ofd.ShowDialog() == DialogResult.OK)
             {
                 // true
-                RichTextBox.Text = File.ReadAllText(Ofd.FileName);
+                if (Path.GetExtension(Ofd.FileName) == ".rtf")
+                {
+                    // true
+                    try
+                    {
+                        // try
+                        RichTextBox.LoadFile(Ofd.FileName);
+                    }
+                    catch
+                    {
+                        // catch
+                        return;
+                    }
+                }
+                else
+                {
+                    // false
+                    try
+                    {
+                        // try
+                        RichTextBox.Text = File.ReadAllText(Ofd.FileName);
+                    }
+                    catch
+                    {
+                        // catch
+                        return;
+                    }
+                }
             }
         }
 
@@ -188,7 +219,34 @@ namespace NotNot
             if (Sfd.ShowDialog() == DialogResult.OK)
             {
                 // true
-                File.WriteAllText(Sfd.FileName, RichTextBox.Text);
+                if (Path.GetExtension(Ofd.FileName) == ".rtf")
+                {
+                    // true
+                    try
+                    {
+                        // try
+                        RichTextBox.SaveFile(Ofd.FileName);
+                    }
+                    catch
+                    {
+                        // catch
+                        return;
+                    }
+                }
+                else
+                {
+                    // false
+                    try
+                    {
+                        // try
+                        File.WriteAllText(Sfd.FileName, RichTextBox.Text);
+                    }
+                    catch
+                    {
+                        // catch
+                        return;
+                    }
+                }
             }
         }
 

@@ -222,15 +222,15 @@ namespace NotNot
             // 
             // Ofd
             // 
-            this.Ofd.DefaultExt = "Tutti i file|*.*";
-            this.Ofd.Filter = "Tutti i file|*.*";
-            this.Ofd.Title = "Apri";
+            this.Ofd.DefaultExt = "TXT File|*.txt";
+            this.Ofd.Filter = "TXT File|*.txt|RTF File|*.rtf|All Files|*.*";
+            this.Ofd.Title = "Open";
             // 
             // Sfd
             // 
-            this.Sfd.DefaultExt = "Tutti i file|*.*";
-            this.Sfd.Filter = "Tutti i file|*.*";
-            this.Sfd.Title = "Salva";
+            this.Sfd.DefaultExt = "TXT File|*.txt";
+            this.Sfd.Filter = "TXT File|*.txt|RTF File|*.rtf|All Files|*.*";
+            this.Sfd.Title = "Save";
             // 
             // Viewer
             // 

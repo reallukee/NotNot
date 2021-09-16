@@ -40,6 +40,7 @@ namespace NotNot
             this.Viewers = new System.Windows.Forms.FlowLayoutPanel();
             this.Version = new System.Windows.Forms.Label();
             this.Separator = new System.Windows.Forms.Panel();
+            this.Shortcurts = new System.Windows.Forms.RichTextBox();
             this.Action_Panel.SuspendLayout();
             this.Action_Menu.SuspendLayout();
             this.SuspendLayout();
@@ -160,11 +161,28 @@ namespace NotNot
             this.Separator.Size = new System.Drawing.Size(1557, 1);
             this.Separator.TabIndex = 5;
             // 
+            // Shortcurts
+            // 
+            this.Shortcurts.BackColor = System.Drawing.SystemColors.Control;
+            this.Shortcurts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.Shortcurts.DetectUrls = false;
+            this.Shortcurts.Enabled = false;
+            this.Shortcurts.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Shortcurts.HideSelection = false;
+            this.Shortcurts.Location = new System.Drawing.Point(14, 74);
+            this.Shortcurts.Margin = new System.Windows.Forms.Padding(5);
+            this.Shortcurts.Name = "Shortcurts";
+            this.Shortcurts.ReadOnly = true;
+            this.Shortcurts.Size = new System.Drawing.Size(342, 684);
+            this.Shortcurts.TabIndex = 6;
+            this.Shortcurts.Text = resources.GetString("Shortcurts.Text");
+            // 
             // NotNot
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 803);
+            this.Controls.Add(this.Shortcurts);
             this.Controls.Add(this.Version);
             this.Controls.Add(this.Viewers);
             this.Controls.Add(this.Separator);
@@ -198,6 +216,7 @@ namespace NotNot
         private System.Windows.Forms.Label Version;
         public System.Windows.Forms.FlowLayoutPanel Viewers;
         private System.Windows.Forms.Panel Separator;
+        private System.Windows.Forms.RichTextBox Shortcurts;
     }
 }
 

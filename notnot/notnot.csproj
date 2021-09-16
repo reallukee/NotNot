@@ -18,6 +18,8 @@
     <AssemblyOriginatorKeyFile>notnotkey.pfx</AssemblyOriginatorKeyFile>
     <RepositoryUrl>https://github.com/reallukee/NotNot</RepositoryUrl>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Version>1.1.0</Version>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

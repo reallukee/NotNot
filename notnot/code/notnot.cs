@@ -45,65 +45,178 @@ namespace NotNot
         public void FromMy(string Args)
         {
             // FromMy(string Args)
-            MessageBox.Show(Args);
-        }
+            int Viewer = 1;
 
-        public Int32 ViewerCount = 1;
-
-        private void NotNot_Load(object Sender, EventArgs E)
-        {
-            // NotNot_Load(object Sender, EventArgs E)
-            Viewer NewViewer = new Viewer();
-            NewViewer.Name = $"{ViewerCount}";
-            Viewers.Controls.Add(NewViewer);
-            ViewerCount++;
-
-            if (Viewers.Controls.Count <= 3)
+            if (char.IsNumber(Args[0]))
             {
                 // true
-                foreach (Control C in Viewers.Controls)
+                try
                 {
-                    // foreach
-                    C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                    // try
+                    Viewer = (int)char.GetNumericValue(Args[0]);
                 }
-
-                MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                catch
+                {
+                    // catch
+                    return;
+                }
             }
             else
             {
                 // false
+                return;
+            }
+
+
+            while (Viewers.Controls.Count < Viewer)
+            {
+                // while
+                Viewer NewViewer = new Viewer();
+                NewViewer.Name = $"{ViewerCount}";
+                Viewers.Controls.Add(NewViewer);
+                ViewerCount++;
+
+                if (Viewers.Controls.Count <= 3)
+                {
+                    // true
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                    }
+
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                }
+                else
+                {
+                    // false
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                    }
+
+
+                    switch (Viewers.Controls.Count)
+                    {
+                        // switch
+                        case 4:
+                            // case
+                            Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                            break;
+
+                        case 5:
+                            // case
+                            Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                            break;
+                    }
+
+                    MinimumSize = new Size(1575, 850);
+                }
+
+
+                ViewerCount = 1;
                 foreach (Control C in Viewers.Controls)
                 {
                     // foreach
-                    C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                    C.Name = $"{ViewerCount}";
+                    ViewerCount++;
                 }
-
-
-                switch (Viewers.Controls.Count)
-                {
-                    // switch
-                    case 4:
-                        // case
-                        Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
-                        break;
-
-                    case 5:
-                        // case
-                        Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
-                        break;
-                }
-
-                MinimumSize = new Size(1500, 850);
             }
 
 
-            ViewerCount = 1;
-            foreach (Control C in Viewers.Controls)
+            if (Path.GetExtension(Strings.Mid(Args, 2)) == ".rtf")
             {
-                // foreach
-                C.Name = $"{ViewerCount}";
-                ViewerCount++;
+                // true
+                try
+                {
+                    // try
+                    RichTextBox R = (RichTextBox)Viewers.Controls[Viewer - 1].Controls["RichTextBox"];
+                    R.LoadFile(Strings.Mid(Args, 2));
+                }
+                catch
+                {
+                    // catch
+                    return;
+                }
             }
+            else
+            {
+                // false
+                try
+                {
+                    // try
+                    RichTextBox R = (RichTextBox)Viewers.Controls[Viewer - 1].Controls["RichTextBox"];
+                    R.Text = File.ReadAllText(Strings.Mid(Args, 2));
+                }
+                catch
+                {
+                    // catch
+                    return;
+                }
+            }
+        }
+
+        public int ViewerCount = 1;
+
+        private void NotNot_Load(object Sender, EventArgs E)
+        {
+            // NotNot_Load(object Sender, EventArgs E)
+            while (Viewers.Controls.Count < 2)
+            {
+                // while
+                Viewer NewViewer = new Viewer();
+                NewViewer.Name = $"{ViewerCount}";
+                Viewers.Controls.Add(NewViewer);
+                ViewerCount++;
+
+                if (Viewers.Controls.Count <= 3)
+                {
+                    // true
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
+                    }
+
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                }
+                else
+                {
+                    // false
+                    foreach (Control C in Viewers.Controls)
+                    {
+                        // foreach
+                        C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
+                    }
+
+
+                    switch (Viewers.Controls.Count)
+                    {
+                        // switch
+                        case 4:
+                            // case
+                            Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
+                            break;
+
+                        case 5:
+                            // case
+                            Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
+                            break;
+                    }
+
+                    MinimumSize = new Size(1500, 850);
+                }
+
+
+                ViewerCount = 1;
+                foreach (Control C in Viewers.Controls)
+                {
+                    // foreach
+                    C.Name = $"{ViewerCount}";
+                    ViewerCount++;
+                }
+            }          
         }
 
 
@@ -186,6 +299,8 @@ namespace NotNot
                 Opacity += 0.1;
                 Form Notify = new Notification($"Opacity: {Math.Round(Opacity * 10)}0%");
                 Notify.Name = "Notification";
+                Rectangle R = Screen.PrimaryScreen.Bounds;
+                Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
                 Notify.Opacity = Opacity;
                 Notify.Show();
 
@@ -225,6 +340,8 @@ namespace NotNot
                 Opacity -= 0.1;
                 Form Notify = new Notification($"Opacity: {Math.Round(Opacity * 10)}0%");
                 Notify.Name = "Notification";
+                Rectangle R = Screen.PrimaryScreen.Bounds;
+                Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
                 Notify.Opacity = Opacity;
                 Notify.Show();
 
@@ -267,6 +384,8 @@ namespace NotNot
 
             Form Notify = new Notification($"Always on top: {TopMost.ToString().ToUpper()}");
             Notify.Name = "Notification";
+            Rectangle R = Screen.PrimaryScreen.Bounds;
+            Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
             Notify.Opacity = Opacity;
             Notify.Show();
         }
@@ -308,6 +427,8 @@ namespace NotNot
                 // true
                 Form Notify = new Notification($"Full screen: TRUE");
                 Notify.Name = "Notification";
+                Rectangle R = Screen.PrimaryScreen.Bounds;
+                Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
                 Notify.Opacity = Opacity;
                 Notify.Show();
             }
@@ -316,6 +437,8 @@ namespace NotNot
                 // false
                 Form Notify = new Notification($"Full screen: FALSE");
                 Notify.Name = "Notification";
+                Rectangle R = Screen.PrimaryScreen.Bounds;
+                Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
                 Notify.Opacity = Opacity;
                 Notify.Show();
             }      
@@ -393,6 +516,7 @@ namespace NotNot
             {
                 // true
                 Version.Visible = false;
+                Shortcurts.Visible = false;
             }
         }
 
@@ -411,6 +535,7 @@ namespace NotNot
             {
                 // true
                 Version.Visible = true;
+                Shortcurts.Visible = true;
             }
         }
     }
