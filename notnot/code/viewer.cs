@@ -52,7 +52,7 @@ namespace NotNot
                 }
 
                 RichTextBox.ZoomFactor += 1;
-                Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x");
+                Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x", 500);
                 Notify.Name = "Notification";
                 Rectangle R = Screen.PrimaryScreen.Bounds;
                 Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
@@ -93,7 +93,7 @@ namespace NotNot
                 }
 
                 RichTextBox.ZoomFactor -= 1;
-                Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x");
+                Form Notify = new Notification($"Zoom: {RichTextBox.ZoomFactor}x", 500);
                 Notify.Name = "Notification";
                 Rectangle R = Screen.PrimaryScreen.Bounds;
                 Notify.Location = new Point(R.Width - Notify.Width - 16, R.Height - Notify.Height - 16);
@@ -112,66 +112,7 @@ namespace NotNot
         private void Action_Menu_Close_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Close_Click(object Sender, EventArgs E)
-            Form Form = Application.OpenForms["NotNot"];
-            Control Viewers = Form.Controls["Viewers"];
-            Viewers.Controls.Remove(Viewers.Controls[Name]);
-            Int32 ViewerCount = 1;
-
-            if (Viewers.Controls.Count >= 1)
-            {
-                // true
-                if (Viewers.Controls.Count <= 3)
-                {
-                    // true
-                    foreach (Control C in Viewers.Controls)
-                    {
-                        // foreach
-                        C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
-                    }
-
-                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
-                }
-                else
-                {
-                    // false
-                    foreach (Control C in Viewers.Controls)
-                    {
-                        // foreach
-                        C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
-                    }
-
-
-                    switch (Viewers.Controls.Count)
-                    {
-                        // switch
-                        case 4:
-                            // case
-                            Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
-                            break;
-
-                        case 5:
-                            // case
-                            Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
-                            break;
-                    }
-
-                    MinimumSize = new Size(1575, 850);
-                }
-            }
-            else
-            {
-                // false
-                MinimumSize = new Size(525, 525);
-            }
-
-
-            ViewerCount = 1;
-            foreach (Control C in Viewers.Controls)
-            {
-                // foreach
-                C.Name = $"{ViewerCount}";
-                ViewerCount++;
-            }
+            Dispose();
         }
 
 
@@ -188,25 +129,73 @@ namespace NotNot
                     {
                         // try
                         RichTextBox.LoadFile(Ofd.FileName);
+                        RichTextBox.Visible = true;
+                        PictureBox.Visible = false;
+                        TextBox.Visible = false;
+                        Action_Menu_Open.Enabled = true;
+                        Action_Menu_Save.Enabled = true;
+                        Action_Menu_Undo.Enabled = true;
+                        Action_Menu_Redo.Enabled = true;
+                        Action_Menu_Cut.Enabled = true;
+                        Action_Menu_Copy.Enabled = true;
+                        Action_Menu_Paste.Enabled = true;
+                        Action_Menu_Delete.Enabled = true;
+                        Action_Menu_MoreZoom.Enabled = true;
+                        Action_Menu_LessZoom.Enabled = true;
                     }
                     catch
                     {
                         // catch
                         return;
                     }
-                }
+                }               
                 else
                 {
                     // false
                     try
                     {
                         // try
-                        RichTextBox.Text = File.ReadAllText(Ofd.FileName);
+                        PictureBox.Image = Image.FromFile(Ofd.FileName);
+                        RichTextBox.Visible = false;
+                        PictureBox.Visible = true;
+                        TextBox.Visible = false;
+                        Action_Menu_Open.Enabled = true;
+                        Action_Menu_Save.Enabled = false;
+                        Action_Menu_Undo.Enabled = false;
+                        Action_Menu_Redo.Enabled = false;
+                        Action_Menu_Cut.Enabled = false;
+                        Action_Menu_Copy.Enabled = false;
+                        Action_Menu_Paste.Enabled = false;
+                        Action_Menu_Delete.Enabled = false;
+                        Action_Menu_MoreZoom.Enabled = false;
+                        Action_Menu_LessZoom.Enabled = false;
                     }
                     catch
                     {
                         // catch
-                        return;
+                        try
+                        {
+                            // try
+                            TextBox.Text = File.ReadAllText(Ofd.FileName);
+                            RichTextBox.Visible = false;
+                            PictureBox.Visible = false;
+                            TextBox.Visible = true;
+                            Action_Menu_Open.Enabled = true;
+                            Action_Menu_Save.Enabled = true;
+                            Action_Menu_Undo.Enabled = true;
+                            Action_Menu_Redo.Enabled = false;
+                            Action_Menu_Cut.Enabled = true;
+                            Action_Menu_Copy.Enabled = true;
+                            Action_Menu_Paste.Enabled = true;
+                            Action_Menu_Delete.Enabled = true;
+                            Action_Menu_MoreZoom.Enabled = false;
+                            Action_Menu_LessZoom.Enabled = false;
+                        }
+                        catch
+                        {
+                            // catch
+                            return;
+                        }
                     }
                 }
             }
@@ -216,10 +205,9 @@ namespace NotNot
         private void Action_Menu_Save_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Save_Click(object Sender, EventArgs E)
-            if (Sfd.ShowDialog() == DialogResult.OK)
+            if (RichTextBox.Visible == true)
             {
-                // true
-                if (Path.GetExtension(Ofd.FileName) == ".rtf")
+                if (Sfd.ShowDialog() == DialogResult.OK)
                 {
                     // true
                     try
@@ -233,9 +221,14 @@ namespace NotNot
                         return;
                     }
                 }
-                else
+            }
+
+
+            if (TextBox.Visible == true)
+            {
+                if (Sfd.ShowDialog() == DialogResult.OK)
                 {
-                    // false
+                    // true
                     try
                     {
                         // try
@@ -254,42 +247,101 @@ namespace NotNot
         private void Action_Menu_Undo_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Undo_Click(object Sender, EventArgs E)
-            RichTextBox.Undo();
+            if (RichTextBox.Visible == true)
+            {
+                // true
+                RichTextBox.Undo();
+            }
+
+
+            if (TextBox.Visible == true)
+            {
+                // true
+                TextBox.Undo();
+            }
         }
 
 
         private void Action_Menu_Redo_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Redo_Click(object Sender, EventArgs E)
-            RichTextBox.Redo();
+            if (RichTextBox.Visible == true)
+            {
+                // true
+                RichTextBox.Redo();
+            }
         }
 
 
         private void Action_Menu_Cut_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Cut_Click(object Sender, EventArgs E)
-            RichTextBox.Cut();
+            if (RichTextBox.Visible == true)
+            {
+                // true
+                RichTextBox.Cut();
+            }
+
+
+            if (TextBox.Visible == true)
+            {
+                // true
+                TextBox.Cut();
+            }
         }
 
 
         private void Action_Menu_Copy_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Copy_Click(object Sender, EventArgs E)
-            RichTextBox.Copy();
+            if (RichTextBox.Visible == true)
+            {
+                // true
+                RichTextBox.Copy();
+            }
+
+
+            if (TextBox.Visible == true)
+            {
+                // true
+                TextBox.Copy();
+            }
         }
 
 
         private void Action_Menu_Paste_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Paste_Click(object Sender, EventArgs E)
-            RichTextBox.Paste();
+            if (RichTextBox.Visible == true)
+            {
+                // true
+                RichTextBox.Paste();
+            }
+
+
+            if (TextBox.Visible == true)
+            {
+                // true
+                TextBox.Paste();
+            }
         }
 
 
         private void Action_Menu_Delete_Click(object Sender, EventArgs E)
         {
             // Action_Menu_Delete_Click(object Sender, EventArgs E)
-            RichTextBox.SelectedText = "";
+            if (RichTextBox.Visible == true)
+            {
+                // true
+                RichTextBox.SelectedText = "";
+            }
+
+
+            if (TextBox.Visible == true)
+            {
+                // true
+                TextBox.SelectedText = "";
+            }
         }
     }
 }

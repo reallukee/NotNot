@@ -66,7 +66,7 @@
                 {
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.5.0.x64"
                     {
-                    "Name" = "8:Runtime di .NET desktop 5.0.9 (x64)"
+                    "Name" = "8:Runtime di .NET desktop 5.0.10 (x64)"
                     "ProductCode" = "8:Microsoft.NetCore.DesktopRuntime.5.0.x64"
                     }
                 }
@@ -89,7 +89,7 @@
         "InstallerBootstrapper" = "3:2"
             "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
             {
-            "Enabled" = "11:FALSE"
+            "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
@@ -98,7 +98,7 @@
                 {
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.NetCore.DesktopRuntime.5.0.x64"
                     {
-                    "Name" = "8:Runtime di .NET desktop 5.0.9 (x64)"
+                    "Name" = "8:Runtime di .NET desktop 5.0.10 (x64)"
                     "ProductCode" = "8:Microsoft.NetCore.DesktopRuntime.5.0.x64"
                     }
                 }
@@ -252,6 +252,17 @@
                 {
                 }
             }
+            "{1525181F-901A-416C-8A58-119130FE478E}:_A4B5F1E530BF42F4AC004C3A8B776F63"
+            {
+            "Name" = "8:#1928"
+            "AlwaysCreate" = "11:FALSE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Property" = "8:StartupFolder"
+                "Folders"
+                {
+                }
+            }
         }
         "LaunchCondition"
         {
@@ -268,15 +279,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NotNot"
-        "ProductCode" = "8:{C34B7FD9-F9CA-44A7-A80A-E5A0C400E401}"
-        "PackageCode" = "8:{CD9C4C41-EB7B-4C57-BD0D-56B3B26E01DA}"
+        "ProductCode" = "8:{122EDC4C-CAEE-462A-9B31-347986BBCB98}"
+        "PackageCode" = "8:{B30684FA-EDBF-4D3B-B813-BB2D226DFAF7}"
         "UpgradeCode" = "8:{93D33297-BB6F-45E2-82A0-C5E4383AE8FA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.1.0"
+        "ProductVersion" = "8:1.2.0"
         "Manufacturer" = "8:Realluke"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:https://github.com/reallukee/NotNot"
@@ -789,6 +800,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ADC946779B8B4F5DB36741488566DC83"
+            {
+            "Name" = "8:NotNot"
+            "Arguments" = "8:"
+            "Description" = "8:NotNot is a text viewer with variable visibility."
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_23E7703B1A2E4EA19D88311964FE9B59"
+            "Folder" = "8:_A4B5F1E530BF42F4AC004C3A8B776F63"
+            "WorkingFolder" = "8:_5054626B9C0E444888B4AE9861D64F31"
+            "Icon" = "8:_283C5137812041A59D4FB52ACDB970E0"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D0107916203D462AA0B05EE12BF52FD3"
             {
             "Name" = "8:NotNot"

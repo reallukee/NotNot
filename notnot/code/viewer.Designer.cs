@@ -43,12 +43,16 @@ namespace NotNot
             this.Action_Menu_Delete = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_MoreZoom = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_LessZoom = new System.Windows.Forms.ToolStripMenuItem();
-            this.Separator2 = new System.Windows.Forms.Panel();
-            this.Separator1 = new System.Windows.Forms.Panel();
+            this.Separator_Top = new System.Windows.Forms.Panel();
+            this.Separator_Bottom = new System.Windows.Forms.Panel();
             this.Ofd = new System.Windows.Forms.OpenFileDialog();
             this.Sfd = new System.Windows.Forms.SaveFileDialog();
+            this.Separator = new System.Windows.Forms.Panel();
+            this.PictureBox = new System.Windows.Forms.PictureBox();
+            this.TextBox = new System.Windows.Forms.TextBox();
             this.Action_Panel.SuspendLayout();
             this.Action_Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // RichTextBox
@@ -70,7 +74,7 @@ namespace NotNot
             this.Action_Panel.Controls.Add(this.Action_Menu);
             this.Action_Panel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Action_Panel.Font = new System.Drawing.Font("Segoe MDL2 Assets", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Action_Panel.Location = new System.Drawing.Point(0, 475);
+            this.Action_Panel.Location = new System.Drawing.Point(0, 474);
             this.Action_Panel.Name = "Action_Panel";
             this.Action_Panel.Size = new System.Drawing.Size(524, 50);
             this.Action_Panel.TabIndex = 1;
@@ -202,44 +206,87 @@ namespace NotNot
             this.Action_Menu_LessZoom.Text = "";
             this.Action_Menu_LessZoom.Click += new System.EventHandler(this.Action_Menu_LessZoom_Click);
             // 
-            // Separator2
+            // Separator_Top
             // 
-            this.Separator2.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Separator2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.Separator2.Location = new System.Drawing.Point(524, 0);
-            this.Separator2.Name = "Separator2";
-            this.Separator2.Size = new System.Drawing.Size(1, 525);
-            this.Separator2.TabIndex = 2;
+            this.Separator_Top.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Separator_Top.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Separator_Top.Location = new System.Drawing.Point(0, 473);
+            this.Separator_Top.Name = "Separator_Top";
+            this.Separator_Top.Size = new System.Drawing.Size(524, 1);
+            this.Separator_Top.TabIndex = 2;
             // 
-            // Separator1
+            // Separator_Bottom
             // 
-            this.Separator1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.Separator1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.Separator1.Location = new System.Drawing.Point(0, 474);
-            this.Separator1.Name = "Separator1";
-            this.Separator1.Size = new System.Drawing.Size(524, 1);
-            this.Separator1.TabIndex = 3;
+            this.Separator_Bottom.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Separator_Bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Separator_Bottom.Location = new System.Drawing.Point(0, 524);
+            this.Separator_Bottom.Name = "Separator_Bottom";
+            this.Separator_Bottom.Size = new System.Drawing.Size(524, 1);
+            this.Separator_Bottom.TabIndex = 3;
             // 
             // Ofd
             // 
-            this.Ofd.DefaultExt = "TXT File|*.txt";
-            this.Ofd.Filter = "TXT File|*.txt|RTF File|*.rtf|All Files|*.*";
+            this.Ofd.DefaultExt = "*.*";
+            this.Ofd.Filter = "TXT File|*.txt|RTF File|*.rtf|JPG File|*.jpg|PNG File|*.png|BMP File|*.bmp|All Fi" +
+    "les|*.*";
+            this.Ofd.FilterIndex = 6;
             this.Ofd.Title = "Open";
             // 
             // Sfd
             // 
-            this.Sfd.DefaultExt = "TXT File|*.txt";
-            this.Sfd.Filter = "TXT File|*.txt|RTF File|*.rtf|All Files|*.*";
+            this.Sfd.DefaultExt = "*.*";
+            this.Sfd.Filter = "TXT File|*.txt|RTF File|*.rtf|JPG File|*.jpg|PNG File|*.png|BMP File|*.bmp|All Fi" +
+    "les|*.*";
+            this.Sfd.FilterIndex = 6;
             this.Sfd.Title = "Save";
+            // 
+            // Separator
+            // 
+            this.Separator.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Separator.Dock = System.Windows.Forms.DockStyle.Right;
+            this.Separator.Location = new System.Drawing.Point(524, 0);
+            this.Separator.Name = "Separator";
+            this.Separator.Size = new System.Drawing.Size(1, 525);
+            this.Separator.TabIndex = 4;
+            // 
+            // PictureBox
+            // 
+            this.PictureBox.BackColor = System.Drawing.Color.White;
+            this.PictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PictureBox.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.PictureBox.Name = "PictureBox";
+            this.PictureBox.Size = new System.Drawing.Size(524, 473);
+            this.PictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox.TabIndex = 5;
+            this.PictureBox.TabStop = false;
+            this.PictureBox.Visible = false;
+            // 
+            // TextBox
+            // 
+            this.TextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TextBox.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TextBox.Location = new System.Drawing.Point(0, 0);
+            this.TextBox.Margin = new System.Windows.Forms.Padding(0);
+            this.TextBox.Multiline = true;
+            this.TextBox.Name = "TextBox";
+            this.TextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.TextBox.Size = new System.Drawing.Size(524, 473);
+            this.TextBox.TabIndex = 6;
+            this.TextBox.Visible = false;
             // 
             // Viewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.TextBox);
+            this.Controls.Add(this.PictureBox);
+            this.Controls.Add(this.Separator_Top);
             this.Controls.Add(this.RichTextBox);
-            this.Controls.Add(this.Separator1);
             this.Controls.Add(this.Action_Panel);
-            this.Controls.Add(this.Separator2);
+            this.Controls.Add(this.Separator_Bottom);
+            this.Controls.Add(this.Separator);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "Viewer";
             this.Size = new System.Drawing.Size(525, 525);
@@ -247,7 +294,9 @@ namespace NotNot
             this.Action_Panel.PerformLayout();
             this.Action_Menu.ResumeLayout(false);
             this.Action_Menu.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,8 +308,8 @@ namespace NotNot
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_MoreZoom;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_LessZoom;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_Close;
-        private System.Windows.Forms.Panel Separator2;
-        private System.Windows.Forms.Panel Separator1;
+        private System.Windows.Forms.Panel Separator_Top;
+        private System.Windows.Forms.Panel Separator_Bottom;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_Open;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_Save;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_Undo;
@@ -271,5 +320,8 @@ namespace NotNot
         private System.Windows.Forms.OpenFileDialog Ofd;
         private System.Windows.Forms.SaveFileDialog Sfd;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_Delete;
+        private System.Windows.Forms.Panel Separator;
+        private System.Windows.Forms.PictureBox PictureBox;
+        private System.Windows.Forms.TextBox TextBox;
     }
 }

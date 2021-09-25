@@ -27,7 +27,7 @@ namespace NotNot
             EnableVisualStyles = true;
             SaveMySettingsOnExit = true;
             ShutdownStyle = ShutdownMode.AfterMainFormCloses;
-            MinimumSplashScreenDisplayTime = 1000;
+            MinimumSplashScreenDisplayTime = 10000;
             Startup += MyApplication_Startup;
             StartupNextInstance += MyApplication_StartupNextInstance;
             Shutdown += MyApplication_Shutdown;
@@ -46,7 +46,7 @@ namespace NotNot
         protected override void OnCreateSplashScreen()
         {
             // OnCreateSplashScreen()
-            // SplashScreen =
+            // SplashScreen = new Splash();
         }
 
 

@@ -29,6 +29,7 @@ namespace NotNot
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotNot));
             this.Action_Panel = new System.Windows.Forms.Panel();
             this.Action_Menu = new System.Windows.Forms.MenuStrip();
@@ -41,8 +42,15 @@ namespace NotNot
             this.Version = new System.Windows.Forms.Label();
             this.Separator = new System.Windows.Forms.Panel();
             this.Shortcurts = new System.Windows.Forms.RichTextBox();
+            this.NI = new System.Windows.Forms.NotifyIcon(this.components);
+            this.NI_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NI_Menu_Show = new System.Windows.Forms.ToolStripMenuItem();
+            this.NI_Menu_Separator = new System.Windows.Forms.ToolStripSeparator();
+            this.NI_Menu_Close = new System.Windows.Forms.ToolStripMenuItem();
+            this.NI_Menu_Hide = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Panel.SuspendLayout();
             this.Action_Menu.SuspendLayout();
+            this.NI_Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Action_Panel
@@ -143,6 +151,7 @@ namespace NotNot
             // 
             this.Version.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Version.AutoSize = true;
+            this.Version.Enabled = false;
             this.Version.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Version.ForeColor = System.Drawing.Color.Black;
             this.Version.Location = new System.Drawing.Point(14, 769);
@@ -154,7 +163,7 @@ namespace NotNot
             // 
             // Separator
             // 
-            this.Separator.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.Separator.BackColor = System.Drawing.Color.Silver;
             this.Separator.Dock = System.Windows.Forms.DockStyle.Top;
             this.Separator.Location = new System.Drawing.Point(0, 61);
             this.Separator.Name = "Separator";
@@ -173,9 +182,57 @@ namespace NotNot
             this.Shortcurts.Margin = new System.Windows.Forms.Padding(5);
             this.Shortcurts.Name = "Shortcurts";
             this.Shortcurts.ReadOnly = true;
-            this.Shortcurts.Size = new System.Drawing.Size(342, 684);
+            this.Shortcurts.Size = new System.Drawing.Size(345, 345);
             this.Shortcurts.TabIndex = 6;
             this.Shortcurts.Text = resources.GetString("Shortcurts.Text");
+            // 
+            // NI
+            // 
+            this.NI.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.NI.BalloonTipText = "NotNot (Text)";
+            this.NI.BalloonTipTitle = "NotNot (Title)";
+            this.NI.ContextMenuStrip = this.NI_Menu;
+            this.NI.Icon = ((System.Drawing.Icon)(resources.GetObject("NI.Icon")));
+            this.NI.Text = "NotNot";
+            this.NI.Visible = true;
+            // 
+            // NI_Menu
+            // 
+            this.NI_Menu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.NI_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.NI_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NI_Menu_Show,
+            this.NI_Menu_Hide,
+            this.NI_Menu_Separator,
+            this.NI_Menu_Close});
+            this.NI_Menu.Name = "NI_Menu";
+            this.NI_Menu.Size = new System.Drawing.Size(211, 122);
+            // 
+            // NI_Menu_Show
+            // 
+            this.NI_Menu_Show.Name = "NI_Menu_Show";
+            this.NI_Menu_Show.Size = new System.Drawing.Size(232, 28);
+            this.NI_Menu_Show.Text = "Show";
+            this.NI_Menu_Show.Click += new System.EventHandler(this.NI_Menu_NotNot_Click);
+            // 
+            // NI_Menu_Separator
+            // 
+            this.NI_Menu_Separator.Name = "NI_Menu_Separator";
+            this.NI_Menu_Separator.Size = new System.Drawing.Size(229, 6);
+            // 
+            // NI_Menu_Close
+            // 
+            this.NI_Menu_Close.Name = "NI_Menu_Close";
+            this.NI_Menu_Close.Size = new System.Drawing.Size(232, 28);
+            this.NI_Menu_Close.Text = "Close";
+            this.NI_Menu_Close.Click += new System.EventHandler(this.NI_Menu_Close_Click);
+            // 
+            // NI_Menu_Hide
+            // 
+            this.NI_Menu_Hide.Name = "NI_Menu_Hide";
+            this.NI_Menu_Hide.Size = new System.Drawing.Size(210, 28);
+            this.NI_Menu_Hide.Text = "Hide";
+            this.NI_Menu_Hide.Click += new System.EventHandler(this.NI_Menu_Hide_Click);
             // 
             // NotNot
             // 
@@ -193,12 +250,14 @@ namespace NotNot
             this.Name = "NotNot";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NotNot";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotNot_FormClosing);
             this.Load += new System.EventHandler(this.NotNot_Load);
             this.Resize += new System.EventHandler(this.NotNot_Resize);
             this.Action_Panel.ResumeLayout(false);
             this.Action_Panel.PerformLayout();
             this.Action_Menu.ResumeLayout(false);
             this.Action_Menu.PerformLayout();
+            this.NI_Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,9 +273,15 @@ namespace NotNot
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_FullScreen;
         private System.Windows.Forms.ToolStripMenuItem Action_Menu_AddViewer;
         private System.Windows.Forms.Label Version;
-        public System.Windows.Forms.FlowLayoutPanel Viewers;
         private System.Windows.Forms.Panel Separator;
         private System.Windows.Forms.RichTextBox Shortcurts;
+        private System.Windows.Forms.FlowLayoutPanel Viewers;
+        private System.Windows.Forms.NotifyIcon NI;
+        private System.Windows.Forms.ContextMenuStrip NI_Menu;
+        private System.Windows.Forms.ToolStripMenuItem NI_Menu_Show;
+        private System.Windows.Forms.ToolStripSeparator NI_Menu_Separator;
+        private System.Windows.Forms.ToolStripMenuItem NI_Menu_Close;
+        private System.Windows.Forms.ToolStripMenuItem NI_Menu_Hide;
     }
 }
 

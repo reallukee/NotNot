@@ -20,18 +20,18 @@ namespace NotNot
 {
     public partial class Notification : Form
     {
-        public Notification(string Text)
+        public Notification(string Text, int Interval)
         {
-            // Notification(string Text)
+            // Notification(string Text, int Interval)
             InitializeComponent();
             Info.Text = Text;
+            Expiration.Interval = Interval;
         }
 
 
         private void Notification_Shown(object Sender, EventArgs E)
         {
             // Notification_Shown(object Sender, EventArgs E)
-            Expiration.Enabled = true;
             Expiration.Start();
         }
 
@@ -39,7 +39,7 @@ namespace NotNot
         private void Expiration_Tick(object Sender, EventArgs E)
         {
             // Expiration_Tick(object Sender, EventArgs E)
-            if (Expiration.Interval == 500)
+            if (Expiration.Interval != 50)
             {
                 // true
                 Expiration.Interval = 50;
