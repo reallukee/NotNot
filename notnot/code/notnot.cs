@@ -38,6 +38,13 @@ namespace NotNot
                 FromMy(Environment.GetCommandLineArgs()[1]);
             }
 
+
+            if (Visible == false)
+            {
+                // true
+                Visible = true;
+            }
+
             BringToFront();
         }
 
@@ -58,19 +65,41 @@ namespace NotNot
                 catch
                 {
                     // catch
-                    return;
-                }
+                    if (Visible == false)
+                    {
+                        // true
+                        Visible = true;
+                    }
 
-
-                if (Viewer < 1 || Viewer > 6)
-                {
-                    // true
+                    BringToFront();
                     return;
                 }
             }
             else
             {
                 // false
+                if (Visible == false)
+                {
+                    // true
+                    Visible = true;
+                }
+
+                BringToFront();
+                return;
+            }
+
+
+
+            if (Viewer < 1 || Viewer > 6)
+            {
+                // true
+                if (Visible == false)
+                {
+                    // true
+                    Visible = true;
+                }
+
+                BringToFront();
                 return;
             }
 
@@ -169,6 +198,13 @@ namespace NotNot
                         return;
                     }
                 }
+            }
+
+
+            if (Visible == false)
+            {
+                // true
+                Visible = true;
             }
 
             BringToFront();

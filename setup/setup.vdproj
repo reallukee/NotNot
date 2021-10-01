@@ -252,17 +252,6 @@
                 {
                 }
             }
-            "{1525181F-901A-416C-8A58-119130FE478E}:_A4B5F1E530BF42F4AC004C3A8B776F63"
-            {
-            "Name" = "8:#1928"
-            "AlwaysCreate" = "11:FALSE"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Property" = "8:StartupFolder"
-                "Folders"
-                {
-                }
-            }
         }
         "LaunchCondition"
         {
@@ -280,7 +269,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:NotNot"
         "ProductCode" = "8:{122EDC4C-CAEE-462A-9B31-347986BBCB98}"
-        "PackageCode" = "8:{B30684FA-EDBF-4D3B-B813-BB2D226DFAF7}"
+        "PackageCode" = "8:{C664AD8B-2D6F-4DA1-B07B-EA599A338B20}"
         "UpgradeCode" = "8:{93D33297-BB6F-45E2-82A0-C5E4383AE8FA}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -330,6 +319,70 @@
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
+                                }
+                                "Values"
+                                {
+                                }
+                            }
+                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_77E8F6EE677B41BCB0B43EE8A516C48E"
+                            {
+                            "Name" = "8:Microsoft"
+                            "Condition" = "8:"
+                            "AlwaysCreate" = "11:FALSE"
+                            "DeleteAtUninstall" = "11:FALSE"
+                            "Transitive" = "11:FALSE"
+                                "Keys"
+                                {
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_CB6EF3EF25CD4DF3BA583C57ED8E9CFD"
+                                    {
+                                    "Name" = "8:Windows"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_B5A8A19F841D4A36B87B671E4664B291"
+                                            {
+                                            "Name" = "8:CurrentVersion"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_0C13D86038F1492D9C78E1CE554CCC70"
+                                                    {
+                                                    "Name" = "8:Run"
+                                                    "Condition" = "8:"
+                                                    "AlwaysCreate" = "11:FALSE"
+                                                    "DeleteAtUninstall" = "11:FALSE"
+                                                    "Transitive" = "11:FALSE"
+                                                        "Keys"
+                                                        {
+                                                        }
+                                                        "Values"
+                                                        {
+                                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_B264FEB925324F0988C069DBB2F23DC3"
+                                                            {
+                                                            "Name" = "8:notnot"
+                                                            "Condition" = "8:"
+                                                            "Transitive" = "11:FALSE"
+                                                            "ValueTypes" = "3:1"
+                                                            "Value" = "8:[TARGETDIR]notnot.exe"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                                "Values"
+                                                {
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
                                 }
                                 "Values"
                                 {
@@ -744,6 +797,14 @@
                                             "ValueTypes" = "3:1"
                                             "Value" = "8:"
                                             }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_0EC9D80DB513448CB8038BDC86452BC1"
+                                            {
+                                            "Name" = "8:SeparatorAfter"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:"
+                                            }
                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_3279805E17574B0299B7511013C0BB22"
                                             {
                                             "Name" = "8:Icon"
@@ -751,6 +812,14 @@
                                             "Transitive" = "11:FALSE"
                                             "ValueTypes" = "3:1"
                                             "Value" = "8:[TARGETDIR]notnot_icon64.ico"
+                                            }
+                                            "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_4EC3192DEC9145B0BC60CF18711BEA80"
+                                            {
+                                            "Name" = "8:Position"
+                                            "Condition" = "8:"
+                                            "Transitive" = "11:FALSE"
+                                            "ValueTypes" = "3:1"
+                                            "Value" = "8:Top"
                                             }
                                             "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_D1B02AF566204D73846ECC1F40601DE2"
                                             {
@@ -800,20 +869,6 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_ADC946779B8B4F5DB36741488566DC83"
-            {
-            "Name" = "8:NotNot"
-            "Arguments" = "8:"
-            "Description" = "8:NotNot is a text viewer with variable visibility."
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_23E7703B1A2E4EA19D88311964FE9B59"
-            "Folder" = "8:_A4B5F1E530BF42F4AC004C3A8B776F63"
-            "WorkingFolder" = "8:_5054626B9C0E444888B4AE9861D64F31"
-            "Icon" = "8:_283C5137812041A59D4FB52ACDB970E0"
-            "Feature" = "8:"
-            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D0107916203D462AA0B05EE12BF52FD3"
             {
             "Name" = "8:NotNot"

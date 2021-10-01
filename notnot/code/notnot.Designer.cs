@@ -45,9 +45,9 @@ namespace NotNot
             this.NI = new System.Windows.Forms.NotifyIcon(this.components);
             this.NI_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.NI_Menu_Show = new System.Windows.Forms.ToolStripMenuItem();
+            this.NI_Menu_Hide = new System.Windows.Forms.ToolStripMenuItem();
             this.NI_Menu_Separator = new System.Windows.Forms.ToolStripSeparator();
             this.NI_Menu_Close = new System.Windows.Forms.ToolStripMenuItem();
-            this.NI_Menu_Hide = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Panel.SuspendLayout();
             this.Action_Menu.SuspendLayout();
             this.NI_Menu.SuspendLayout();
@@ -159,7 +159,7 @@ namespace NotNot
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(173, 20);
             this.Version.TabIndex = 3;
-            this.Version.Text = "NotNot 1.1.0 by Realluke";
+            this.Version.Text = "NotNot 1.2.0 by Realluke";
             // 
             // Separator
             // 
@@ -206,33 +206,33 @@ namespace NotNot
             this.NI_Menu_Separator,
             this.NI_Menu_Close});
             this.NI_Menu.Name = "NI_Menu";
-            this.NI_Menu.Size = new System.Drawing.Size(211, 122);
+            this.NI_Menu.Size = new System.Drawing.Size(122, 94);
             // 
             // NI_Menu_Show
             // 
             this.NI_Menu_Show.Name = "NI_Menu_Show";
-            this.NI_Menu_Show.Size = new System.Drawing.Size(232, 28);
+            this.NI_Menu_Show.Size = new System.Drawing.Size(121, 28);
             this.NI_Menu_Show.Text = "Show";
             this.NI_Menu_Show.Click += new System.EventHandler(this.NI_Menu_NotNot_Click);
-            // 
-            // NI_Menu_Separator
-            // 
-            this.NI_Menu_Separator.Name = "NI_Menu_Separator";
-            this.NI_Menu_Separator.Size = new System.Drawing.Size(229, 6);
-            // 
-            // NI_Menu_Close
-            // 
-            this.NI_Menu_Close.Name = "NI_Menu_Close";
-            this.NI_Menu_Close.Size = new System.Drawing.Size(232, 28);
-            this.NI_Menu_Close.Text = "Close";
-            this.NI_Menu_Close.Click += new System.EventHandler(this.NI_Menu_Close_Click);
             // 
             // NI_Menu_Hide
             // 
             this.NI_Menu_Hide.Name = "NI_Menu_Hide";
-            this.NI_Menu_Hide.Size = new System.Drawing.Size(210, 28);
+            this.NI_Menu_Hide.Size = new System.Drawing.Size(121, 28);
             this.NI_Menu_Hide.Text = "Hide";
             this.NI_Menu_Hide.Click += new System.EventHandler(this.NI_Menu_Hide_Click);
+            // 
+            // NI_Menu_Separator
+            // 
+            this.NI_Menu_Separator.Name = "NI_Menu_Separator";
+            this.NI_Menu_Separator.Size = new System.Drawing.Size(118, 6);
+            // 
+            // NI_Menu_Close
+            // 
+            this.NI_Menu_Close.Name = "NI_Menu_Close";
+            this.NI_Menu_Close.Size = new System.Drawing.Size(121, 28);
+            this.NI_Menu_Close.Text = "Close";
+            this.NI_Menu_Close.Click += new System.EventHandler(this.NI_Menu_Close_Click);
             // 
             // NotNot
             // 
