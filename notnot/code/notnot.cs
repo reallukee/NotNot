@@ -22,113 +22,84 @@ namespace NotNot
     {
         public NotNot()
         {
-            // NotNotMain()
             InitializeComponent();
         }
 
 
         protected override void OnLoad(EventArgs E)
         {
-            // OnLoad(EventArgs E)
             base.OnLoad(E);
 
             if (Environment.GetCommandLineArgs().Count() > 1)
             {
-                // true
                 FromMy(Environment.GetCommandLineArgs()[1]);
             }
-
-
-            if (Visible == false)
+            else
             {
-                // true
-                Visible = true;
+                Show();
+                BringToFront();
+                return;
             }
-
-            BringToFront();
         }
 
 
         public void FromMy(string Args)
         {
-            // FromMy(string Args)
-            int Viewer = 1;
+            int TempViewer = 1;
 
             if (char.IsNumber(Args[0]))
             {
-                // true
-                try
+                TempViewer = (int)char.GetNumericValue(Args[0]);
+            }
+            else
+            {
+                if (Args == "DragAndDrop")
                 {
-                    // try
-                    Viewer = (int)char.GetNumericValue(Args[0]);
-                }
-                catch
-                {
-                    // catch
-                    if (Visible == false)
-                    {
-                        // true
-                        Visible = true;
-                    }
 
+                }
+                else
+                {
+                    Show();
                     BringToFront();
                     return;
                 }
             }
-            else
+
+
+            while (Viewers.Controls.Count < TempViewer)
             {
-                // false
-                if (Visible == false)
-                {
-                    // true
-                    Visible = true;
-                }
-
-                BringToFront();
-                return;
-            }
-
-
-
-            if (Viewer < 1 || Viewer > 6)
-            {
-                // true
-                if (Visible == false)
-                {
-                    // true
-                    Visible = true;
-                }
-
-                BringToFront();
-                return;
-            }
-
-
-            while (Viewers.Controls.Count < Viewer)
-            {
-                // while
-                Viewer NewViewer = new Viewer();
+                Viewer2 NewViewer = new Viewer2();
                 NewViewer.Name = $"{ViewerCount}";
                 Viewers.Controls.Add(NewViewer);
                 ViewerCount++;
             }
 
 
-            if (Path.GetExtension(Strings.Mid(Args, 2)) == ".rtf")
+            try
             {
-                // true
-                try
+                if (Path.GetExtension(Strings.Mid(Args, 2)) == ".rtf")
                 {
-                    // try
-                    Viewer Temp = Viewers.Controls[Viewer - 1] as Viewer;
-                    RichTextBox R = (RichTextBox)Temp.Controls["RichTextBox"];
-                    R.LoadFile(Strings.Mid(Args, 2));
-                    Temp.Controls["RichTextBox"].Visible = true;
-                    Temp.Controls["PictureBox"].Visible = false;
-                    Temp.Controls["TextBox"].Visible = false;
+                    Viewer2 Temp = Viewers.Controls[TempViewer - 1] as Viewer2;
+                    Temp.ViewerRichTextBox.LoadFile(Strings.Mid(Args, 2));
+                    Temp.Controls["Viewer"].Controls.Clear();
+                    Temp.Controls["Viewer"].Controls.Add(Temp.ViewerRichTextBox);
                     MenuStrip M = (MenuStrip)Temp.Controls["Action_Panel"].Controls["Action_Menu"];
-                    M.Items["Action_Menu_Open"].Enabled = false;
-                    M.Items["Action_Menu_Save"].Enabled = false;
+                    M.Items["Action_Menu_Undo"].Enabled = true;
+                    M.Items["Action_Menu_Redo"].Enabled = true;
+                    M.Items["Action_Menu_Cut"].Enabled = true;
+                    M.Items["Action_Menu_Copy"].Enabled = true;
+                    M.Items["Action_Menu_Paste"].Enabled = true;
+                    M.Items["Action_Menu_Delete"].Enabled = true;
+                    M.Items["Action_Menu_MoreZoom"].Enabled = true;
+                    M.Items["Action_Menu_LessZoom"].Enabled = true;
+                }
+                else
+                {
+                    Viewer2 Temp = Viewers.Controls[TempViewer - 1] as Viewer2;
+                    Temp.ViewerPictureBox.Image = Image.FromFile(Strings.Mid(Args, 2));
+                    Temp.Controls["Viewer"].Controls.Clear();
+                    Temp.Controls["Viewer"].Controls.Add(Temp.ViewerPictureBox);
+                    MenuStrip M = (MenuStrip)Temp.Controls["Action_Panel"].Controls["Action_Menu"];
                     M.Items["Action_Menu_Undo"].Enabled = false;
                     M.Items["Action_Menu_Redo"].Enabled = false;
                     M.Items["Action_Menu_Cut"].Enabled = false;
@@ -138,84 +109,34 @@ namespace NotNot
                     M.Items["Action_Menu_MoreZoom"].Enabled = false;
                     M.Items["Action_Menu_LessZoom"].Enabled = false;
                 }
-                catch
-                {
-                    // catch
-                    return;
-                }
             }
-            else
+            catch
             {
-                // false
-                try
-                {
-                    // try
-                    Viewer Temp = Viewers.Controls[Viewer - 1] as Viewer;
-                    PictureBox R = (PictureBox)Temp.Controls["PictureBox"];
-                    R.Image = Image.FromFile(Strings.Mid(Args, 2));
-                    Temp.Controls["RichTextBox"].Visible = false;
-                    Temp.Controls["PictureBox"].Visible = true;
-                    Temp.Controls["TextBox"].Visible = false;
-                    MenuStrip M = (MenuStrip)Temp.Controls["Action_Panel"].Controls["Action_Menu"];
-                    M.Items["Action_Menu_Open"].Enabled = true;
-                    M.Items["Action_Menu_Save"].Enabled = false;
-                    M.Items["Action_Menu_Undo"].Enabled = false;
-                    M.Items["Action_Menu_Redo"].Enabled = false;
-                    M.Items["Action_Menu_Cut"].Enabled = false;
-                    M.Items["Action_Menu_Copy"].Enabled = false;
-                    M.Items["Action_Menu_Paste"].Enabled = false;
-                    M.Items["Action_Menu_Delete"].Enabled = false;
-                    M.Items["Action_Menu_MoreZoom"].Enabled = false;
-                    M.Items["Action_Menu_LessZoom"].Enabled = false;
-                }
-                catch
-                {
-                    // catch
-                    try
-                    {
-                        // try
-                        Viewer Temp = Viewers.Controls[Viewer - 1] as Viewer;
-                        TextBox R = (TextBox)Temp.Controls["TextBox"];
-                        R.Text = File.ReadAllText(Strings.Mid(Args, 2));
-                        Temp.Controls["RichTextBox"].Visible = false;
-                        Temp.Controls["PictureBox"].Visible = false;
-                        Temp.Controls["TextBox"].Visible = true;
-                        MenuStrip M = (MenuStrip)Temp.Controls["Action_Panel"].Controls["Action_Menu"];
-                        M.Items["Action_Menu_Open"].Enabled = true;
-                        M.Items["Action_Menu_Save"].Enabled = true;
-                        M.Items["Action_Menu_Undo"].Enabled = true;
-                        M.Items["Action_Menu_Redo"].Enabled = false;
-                        M.Items["Action_Menu_Cut"].Enabled = true;
-                        M.Items["Action_Menu_Copy"].Enabled = true;
-                        M.Items["Action_Menu_Paste"].Enabled = true;
-                        M.Items["Action_Menu_Delete"].Enabled = true;
-                        M.Items["Action_Menu_MoreZoom"].Enabled = false;
-                        M.Items["Action_Menu_LessZoom"].Enabled = false;
-                    }
-                    catch
-                    {
-                        // catch
-                        return;
-                    }
-                }
+                Viewer2 Temp = Viewers.Controls[TempViewer - 1] as Viewer2;
+                Temp.ViewerTextBox.Text = File.ReadAllText(Strings.Mid(Args, 2));
+                Temp.Controls["Viewer"].Controls.Clear();
+                Temp.Controls["Viewer"].Controls.Add(Temp.ViewerTextBox);
+                MenuStrip M = (MenuStrip)Temp.Controls["Action_Panel"].Controls["Action_Menu"];
+                M.Items["Action_Menu_Undo"].Enabled = true;
+                M.Items["Action_Menu_Redo"].Enabled = false;
+                M.Items["Action_Menu_Cut"].Enabled = true;
+                M.Items["Action_Menu_Copy"].Enabled = true;
+                M.Items["Action_Menu_Paste"].Enabled = true;
+                M.Items["Action_Menu_Delete"].Enabled = true;
+                M.Items["Action_Menu_MoreZoom"].Enabled = false;
+                M.Items["Action_Menu_LessZoom"].Enabled = false;
             }
 
-
-            if (Visible == false)
-            {
-                // true
-                Visible = true;
-            }
-
+            Show();
             BringToFront();
+            return;
         }
 
         public int ViewerCount = 1;
 
         private void NotNot_Load(object Sender, EventArgs E)
         {
-            // NotNot_Load(object Sender, EventArgs E)
-            Viewer NewViewer = new Viewer();
+            Viewer2 NewViewer = new Viewer2();
             NewViewer.Name = $"{ViewerCount}";
             Viewers.Controls.Add(NewViewer);
             ViewerCount++;
@@ -224,33 +145,65 @@ namespace NotNot
 
         private void Action_Menu_AddViewer_Click(object Sender, EventArgs E)
         {
-            // Action_Menu_AddViewer_Click(object Sender, EventArgs E)
-            Viewer NewViewer = new Viewer();
+            Viewer2 NewViewer = new Viewer2();
             NewViewer.Name = $"{ViewerCount}";
             Viewers.Controls.Add(NewViewer);
             ViewerCount++;
         }
 
 
+        private void Action_Menu_DragAndDrop_Click(object Sender, EventArgs E)
+        {
+            foreach (Form F in Application.OpenForms)
+            {
+                if (F.Name == "DragAndDrop")
+                {
+                    F.Dispose();
+                    break;
+                }
+            }
+
+            Form DragAndDrop = new DragAndDrop();
+            DragAndDrop.Name = "DragAndDrop";
+            DragAndDrop.Location = new Point(32, 32);
+            DragAndDrop.Opacity = Opacity;
+            DragAndDrop.Show();
+        }
+
+
+        private void NI_Menu_DragAndDrop_Click(object Sender, EventArgs E)
+        {
+            foreach (Form F in Application.OpenForms)
+            {
+                if (F.Name == "DragAndDrop")
+                {
+                    F.Dispose();
+                    break;
+                }
+            }
+
+            Form DragAndDrop = new DragAndDrop();
+            DragAndDrop.Name = "DragAndDrop";
+            DragAndDrop.Location = new Point(32, 32);
+            DragAndDrop.Opacity = Opacity;
+            DragAndDrop.Show();
+        }
+
+
         private void Action_Menu_MoreOpacity_Click(object Sender, EventArgs E)
         {
-            // Action_Menu_MoreOpacity_Click(object Sender, EventArgs E)
             if (Opacity <= 1.0)
             {
-                // true
                 if (Action_Menu_LessOpacity.Enabled == false)
                 {
-                    // true
                     Action_Menu_LessOpacity.Enabled = true;
                 }
 
                 
                 foreach (Form F in Application.OpenForms)
                 {
-                    // foreach
                     if (F.Name == "Notification")
                     {
-                        // true
                         F.Dispose();
                         break;
                     }
@@ -266,7 +219,6 @@ namespace NotNot
 
                 if (Opacity >= 1.0)
                 {
-                    // true
                     Action_Menu_MoreOpacity.Enabled = false;
                 }
             }
@@ -275,23 +227,18 @@ namespace NotNot
 
         private void Action_Menu_LessOpacity_Click(object Sender, EventArgs E)
         {
-            // Action_Menu_LessOpacity_Click(object Sender, EventArgs E)
             if (Opacity >= 0.3)
             {
-                // true
                 if (Action_Menu_MoreOpacity.Enabled == false)
                 {
-                    // true
                     Action_Menu_MoreOpacity.Enabled = true;
                 }
 
 
                 foreach (Form F in Application.OpenForms)
                 {
-                    // foreach
                     if (F.Name == "Notification")
                     {
-                        // true
                         F.Dispose();
                         break;
                     }
@@ -307,7 +254,6 @@ namespace NotNot
 
                 if (Opacity <= 0.3)
                 {
-                    // true
                     Action_Menu_LessOpacity.Enabled = false;
                 }
             }
@@ -316,16 +262,13 @@ namespace NotNot
 
         private void Action_Menu_AlwaysOnTop_Click(object Sender, EventArgs E)
         {
-            // Action_Menu_AlwaysOnTop_Click(object Sender, EventArgs E)
             if (TopMost == true)
             {
-                // true
                 Action_Menu_AlwaysOnTop.Text = "";
                 TopMost = false;
             }
             else
             {
-                // false
                 Action_Menu_AlwaysOnTop.Text = "";
                 TopMost = true;
             }
@@ -333,10 +276,8 @@ namespace NotNot
 
             foreach (Form F in Application.OpenForms)
             {
-                // foreach
                 if (F.Name == "Notification")
                 {
-                    // true
                     F.Dispose();
                     break;
                 }
@@ -353,17 +294,14 @@ namespace NotNot
 
         private void Action_Menu_FullScreen_Click(object Sender, EventArgs E)
         {
-            // Action_Menu_FullScreen_Click(object Sender, EventArgs E)
             if (FormBorderStyle == FormBorderStyle.Sizable)
             {
-                // true
                 Action_Menu_FullScreen.Text = "";
                 FormBorderStyle = FormBorderStyle.None;
                 WindowState = FormWindowState.Maximized;
             }
             else
             {
-                // false
                 Action_Menu_FullScreen.Text = "";
                 FormBorderStyle = FormBorderStyle.Sizable;
                 WindowState = FormWindowState.Normal;
@@ -372,10 +310,8 @@ namespace NotNot
 
             foreach (Form F in Application.OpenForms)
             {
-                // foreach
                 if (F.Name == "Notification")
                 {
-                    // true
                     F.Dispose();
                     break;
                 }
@@ -384,7 +320,6 @@ namespace NotNot
 
             if (FormBorderStyle == FormBorderStyle.None && WindowState == FormWindowState.Maximized)
             {
-                // true
                 Form Notify = new Notification($"Full screen: TRUE", 500);
                 Notify.Name = "Notification";
                 Rectangle R = Screen.PrimaryScreen.Bounds;
@@ -394,7 +329,6 @@ namespace NotNot
             }
             else
             {
-                // false
                 Form Notify = new Notification($"Full screen: FALSE", 500);
                 Notify.Name = "Notification";
                 Rectangle R = Screen.PrimaryScreen.Bounds;
@@ -407,41 +341,32 @@ namespace NotNot
 
         private void NotNot_Resize(object Sender, EventArgs E)
         {
-            // NotNot_Resize(object Sender, EventArgs E)
             if (Viewers.Controls.Count >= 1)
             {
-                // true
                 if (Viewers.Controls.Count <= 3)
                 {
-                    // true
                     foreach (Control C in Viewers.Controls)
                     {
-                        // foreach
                         C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
                     }
 
-                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525 + 50 * Viewers.Controls.Count);
                 }
                 else
                 {
-                    // false
                     foreach (Control C in Viewers.Controls)
                     {
-                        // foreach
                         C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
                     }
 
 
                     switch (Viewers.Controls.Count)
                     {
-                        // switch
                         case 4:
-                            // case
                             Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
                             break;
 
                         case 5:
-                            // case
                             Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
                             break;
                     }
@@ -451,37 +376,35 @@ namespace NotNot
             }
             else
             {
-                // false
                 MinimumSize = new Size(525, 525);
             }
 
 
-            if (Width < 1175 || Height < 600)
+            foreach (Control C in Viewers.Controls)
             {
-                // true
-                Shortcurts.Size = new Size(0, 0);
-            }
-            else
-            {
-                // false
-                Shortcurts.Size = new Size(340, 340);
+                Control ViewerTemp = C.Controls["Viewer"];
+
+                foreach (Control Child in ViewerTemp.Controls)
+                {
+                    if (Child.Name == "Info")
+                    {
+                        Child.Location = new Point((ViewerTemp.Width - Child.Width) / 2, (ViewerTemp.Height - Child.Height) / 2);
+                    }
+                }
             }
         }
 
 
         private void Viewers_ControlAdded(object Sender, ControlEventArgs E)
         {
-            // Viewers_ControlAdded(object Sender, ControlEventArgs E)
             if (Viewers.Controls.Count >= 6)
             {
-                // true
                 Action_Menu_AddViewer.Enabled = false;
             }
 
 
             if (Viewers.Controls.Count >= 0)
             {
-                // true
                 Version.Visible = false;
                 Shortcurts.Visible = false;
                 MinimumSize = new Size(525, 525);
@@ -490,38 +413,30 @@ namespace NotNot
 
             if (Viewers.Controls.Count >= 1)
             {
-                // true
                 if (Viewers.Controls.Count <= 3)
                 {
-                    // true
                     foreach (Control C in Viewers.Controls)
                     {
-                        // foreach
                         C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
                     }
 
-                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525 + 50 * Viewers.Controls.Count);
                 }
                 else
                 {
-                    // false
                     foreach (Control C in Viewers.Controls)
                     {
-                        // foreach
                         C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
                     }
 
 
                     switch (Viewers.Controls.Count)
                     {
-                        // switch
                         case 4:
-                            // case
                             Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
                             break;
 
                         case 5:
-                            // case
                             Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
                             break;
                     }
@@ -531,7 +446,6 @@ namespace NotNot
             }
             else
             {
-                // false
                 MinimumSize = new Size(525, 525);
             }
 
@@ -539,26 +453,36 @@ namespace NotNot
             ViewerCount = 1;
             foreach (Control C in Viewers.Controls)
             {
-                // foreach
                 C.Name = $"{ViewerCount}";
                 ViewerCount++;
+            }
+
+
+            foreach (Control C in Viewers.Controls)
+            {
+                Control ViewerTemp = C.Controls["Viewer"];
+
+                foreach (Control Child in ViewerTemp.Controls)
+                {
+                    if (Child.Name == "Info")
+                    {
+                        Child.Location = new Point((ViewerTemp.Width - Child.Width) / 2, (ViewerTemp.Height - Child.Height) / 2);
+                    }
+                }
             }
         }
 
 
         private void Viewers_ControlRemoved(object Sender, ControlEventArgs E)
         {
-            // Viewers_ControlRemoved(object Sender, ControlEventArgs E)
             if (Viewers.Controls.Count <= 6)
             {
-                // true
                 Action_Menu_AddViewer.Enabled = true;             
             }
 
 
             if (Viewers.Controls.Count <= 0)
             {
-                // true
                 Version.Visible = true;
                 Shortcurts.Visible = true;
                 MinimumSize = new Size(525, 525);
@@ -567,38 +491,30 @@ namespace NotNot
 
             if (Viewers.Controls.Count >= 1)
             {
-                // true
                 if (Viewers.Controls.Count <= 3)
                 {
-                    // true
                     foreach (Control C in Viewers.Controls)
                     {
-                        // foreach
                         C.Size = new Size(Viewers.Width / Viewers.Controls.Count, Viewers.Height);
                     }
 
-                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525);
+                    MinimumSize = new Size(525 * Viewers.Controls.Count, 525 + 50 * Viewers.Controls.Count);
                 }
                 else
                 {
-                    // false
                     foreach (Control C in Viewers.Controls)
                     {
-                        // foreach
                         C.Size = new Size(Viewers.Width / 3, Viewers.Height / 2);
                     }
 
 
                     switch (Viewers.Controls.Count)
                     {
-                        // switch
                         case 4:
-                            // case
                             Viewers.Controls[3].Size = new Size(Viewers.Width, Viewers.Height / 2);
                             break;
 
                         case 5:
-                            // case
                             Viewers.Controls[4].Size = new Size(Viewers.Width / 3 * 2, Viewers.Height / 2);
                             break;
                     }
@@ -608,7 +524,6 @@ namespace NotNot
             }
             else
             {
-                // false
                 MinimumSize = new Size(525, 525);
             }
 
@@ -616,52 +531,73 @@ namespace NotNot
             ViewerCount = 1;
             foreach (Control C in Viewers.Controls)
             {
-                // foreach
                 C.Name = $"{ViewerCount}";
                 ViewerCount++;
+            }
+
+
+            foreach (Control C in Viewers.Controls)
+            {
+                Control ViewerTemp = C.Controls["Viewer"];
+
+                foreach (Control Child in ViewerTemp.Controls)
+                {
+                    if (Child.Name == "Info")
+                    {
+                        Child.Location = new Point((ViewerTemp.Width - Child.Width) / 2, (ViewerTemp.Height - Child.Height) / 2);
+                    }
+                }
             }
         }
 
 
         private void NotNot_FormClosing(object Sender, FormClosingEventArgs E)
         {
-            // NotNot_FormClosing(object Sender, FormClosingEventArgs E)ù
             E.Cancel = true;
             Hide();
         }
 
 
+        private void NI_DoubleClick(object Sender, EventArgs E)
+        {
+            Show();
+            BringToFront();
+        }
+
+
         private void NI_Menu_NotNot_Click(object Sender, EventArgs E)
         {
-            // NI_Menu_NotNot_Click(object Sender, EventArgs E)
-            if (Visible == true)
-            {
-                // true
-                BringToFront();
-            }
-            else
-            {
-                // false
-                Show();
-            }
+            Show();
+            BringToFront();
         }
 
 
         private void NI_Menu_Hide_Click(object Sender, EventArgs E)
         {
-            // NI_Menu_Hide_Click(object Sender, EventArgs E)
-            if (Visible == true)
-            {
-                // true
-                Hide();
-            }
+            Hide();
         }
 
 
         private void NI_Menu_Close_Click(object Sender, EventArgs E)
         {
-            // NI_Menu_Close_Click(object Sender, EventArgs E)
             Environment.Exit(0);
+        }
+
+
+        private void NotNot_VisibleChanged(object Sender, EventArgs E)
+        {
+            if (Visible == true)
+            {
+                // true
+                NI_Menu_Show.Enabled = false;
+                NI_Menu_Hide.Enabled = true;
+            }
+            else
+            {
+                // false
+                NI_Menu_Show.Enabled = true;
+                NI_Menu_Hide.Enabled = false;
+            }
         }
     }
 }

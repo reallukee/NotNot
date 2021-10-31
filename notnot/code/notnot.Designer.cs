@@ -38,15 +38,18 @@ namespace NotNot
             this.Action_Menu_LessOpacity = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_MoreOpacity = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Menu_AddViewer = new System.Windows.Forms.ToolStripMenuItem();
+            this.Action_Menu_DragAndDrop = new System.Windows.Forms.ToolStripMenuItem();
             this.Viewers = new System.Windows.Forms.FlowLayoutPanel();
             this.Version = new System.Windows.Forms.Label();
             this.Separator = new System.Windows.Forms.Panel();
             this.Shortcurts = new System.Windows.Forms.RichTextBox();
             this.NI = new System.Windows.Forms.NotifyIcon(this.components);
             this.NI_Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.NI_Menu_DragAndDrop = new System.Windows.Forms.ToolStripMenuItem();
+            this.NI_Menu_Separator1 = new System.Windows.Forms.ToolStripSeparator();
             this.NI_Menu_Show = new System.Windows.Forms.ToolStripMenuItem();
             this.NI_Menu_Hide = new System.Windows.Forms.ToolStripMenuItem();
-            this.NI_Menu_Separator = new System.Windows.Forms.ToolStripSeparator();
+            this.NI_Menu_Separator3 = new System.Windows.Forms.ToolStripSeparator();
             this.NI_Menu_Close = new System.Windows.Forms.ToolStripMenuItem();
             this.Action_Panel.SuspendLayout();
             this.Action_Menu.SuspendLayout();
@@ -76,7 +79,8 @@ namespace NotNot
             this.Action_Menu_FullScreen,
             this.Action_Menu_LessOpacity,
             this.Action_Menu_MoreOpacity,
-            this.Action_Menu_AddViewer});
+            this.Action_Menu_AddViewer,
+            this.Action_Menu_DragAndDrop});
             this.Action_Menu.Location = new System.Drawing.Point(0, 0);
             this.Action_Menu.Name = "Action_Menu";
             this.Action_Menu.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
@@ -134,6 +138,15 @@ namespace NotNot
             this.Action_Menu_AddViewer.Text = "";
             this.Action_Menu_AddViewer.Click += new System.EventHandler(this.Action_Menu_AddViewer_Click);
             // 
+            // Action_Menu_DragAndDrop
+            // 
+            this.Action_Menu_DragAndDrop.Name = "Action_Menu_DragAndDrop";
+            this.Action_Menu_DragAndDrop.Padding = new System.Windows.Forms.Padding(6, 3, 6, 3);
+            this.Action_Menu_DragAndDrop.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.Action_Menu_DragAndDrop.Size = new System.Drawing.Size(45, 57);
+            this.Action_Menu_DragAndDrop.Text = "";
+            this.Action_Menu_DragAndDrop.Click += new System.EventHandler(this.Action_Menu_DragAndDrop_Click);
+            // 
             // Viewers
             // 
             this.Viewers.BackgroundImage = global::NotNot.Properties.Resources.NotNot_Icon64;
@@ -159,7 +172,7 @@ namespace NotNot
             this.Version.Name = "Version";
             this.Version.Size = new System.Drawing.Size(173, 20);
             this.Version.TabIndex = 3;
-            this.Version.Text = "NotNot 1.2.0 by Realluke";
+            this.Version.Text = "NotNot 1.3.0 by Realluke";
             // 
             // Separator
             // 
@@ -185,6 +198,7 @@ namespace NotNot
             this.Shortcurts.Size = new System.Drawing.Size(345, 345);
             this.Shortcurts.TabIndex = 6;
             this.Shortcurts.Text = resources.GetString("Shortcurts.Text");
+            this.Shortcurts.Visible = false;
             // 
             // NI
             // 
@@ -195,42 +209,57 @@ namespace NotNot
             this.NI.Icon = ((System.Drawing.Icon)(resources.GetObject("NI.Icon")));
             this.NI.Text = "NotNot";
             this.NI.Visible = true;
+            this.NI.DoubleClick += new System.EventHandler(this.NI_DoubleClick);
             // 
             // NI_Menu
             // 
             this.NI_Menu.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.NI_Menu.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.NI_Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.NI_Menu_DragAndDrop,
+            this.NI_Menu_Separator1,
             this.NI_Menu_Show,
             this.NI_Menu_Hide,
-            this.NI_Menu_Separator,
+            this.NI_Menu_Separator3,
             this.NI_Menu_Close});
             this.NI_Menu.Name = "NI_Menu";
-            this.NI_Menu.Size = new System.Drawing.Size(122, 94);
+            this.NI_Menu.Size = new System.Drawing.Size(207, 128);
+            // 
+            // NI_Menu_DragAndDrop
+            // 
+            this.NI_Menu_DragAndDrop.Name = "NI_Menu_DragAndDrop";
+            this.NI_Menu_DragAndDrop.Size = new System.Drawing.Size(206, 28);
+            this.NI_Menu_DragAndDrop.Text = "Drag and Drop...";
+            this.NI_Menu_DragAndDrop.Click += new System.EventHandler(this.NI_Menu_DragAndDrop_Click);
+            // 
+            // NI_Menu_Separator1
+            // 
+            this.NI_Menu_Separator1.Name = "NI_Menu_Separator1";
+            this.NI_Menu_Separator1.Size = new System.Drawing.Size(203, 6);
             // 
             // NI_Menu_Show
             // 
             this.NI_Menu_Show.Name = "NI_Menu_Show";
-            this.NI_Menu_Show.Size = new System.Drawing.Size(121, 28);
+            this.NI_Menu_Show.Size = new System.Drawing.Size(206, 28);
             this.NI_Menu_Show.Text = "Show";
             this.NI_Menu_Show.Click += new System.EventHandler(this.NI_Menu_NotNot_Click);
             // 
             // NI_Menu_Hide
             // 
             this.NI_Menu_Hide.Name = "NI_Menu_Hide";
-            this.NI_Menu_Hide.Size = new System.Drawing.Size(121, 28);
+            this.NI_Menu_Hide.Size = new System.Drawing.Size(206, 28);
             this.NI_Menu_Hide.Text = "Hide";
             this.NI_Menu_Hide.Click += new System.EventHandler(this.NI_Menu_Hide_Click);
             // 
-            // NI_Menu_Separator
+            // NI_Menu_Separator3
             // 
-            this.NI_Menu_Separator.Name = "NI_Menu_Separator";
-            this.NI_Menu_Separator.Size = new System.Drawing.Size(118, 6);
+            this.NI_Menu_Separator3.Name = "NI_Menu_Separator3";
+            this.NI_Menu_Separator3.Size = new System.Drawing.Size(203, 6);
             // 
             // NI_Menu_Close
             // 
             this.NI_Menu_Close.Name = "NI_Menu_Close";
-            this.NI_Menu_Close.Size = new System.Drawing.Size(121, 28);
+            this.NI_Menu_Close.Size = new System.Drawing.Size(206, 28);
             this.NI_Menu_Close.Text = "Close";
             this.NI_Menu_Close.Click += new System.EventHandler(this.NI_Menu_Close_Click);
             // 
@@ -239,8 +268,8 @@ namespace NotNot
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 803);
-            this.Controls.Add(this.Shortcurts);
             this.Controls.Add(this.Version);
+            this.Controls.Add(this.Shortcurts);
             this.Controls.Add(this.Viewers);
             this.Controls.Add(this.Separator);
             this.Controls.Add(this.Action_Panel);
@@ -252,6 +281,7 @@ namespace NotNot
             this.Text = "NotNot";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.NotNot_FormClosing);
             this.Load += new System.EventHandler(this.NotNot_Load);
+            this.VisibleChanged += new System.EventHandler(this.NotNot_VisibleChanged);
             this.Resize += new System.EventHandler(this.NotNot_Resize);
             this.Action_Panel.ResumeLayout(false);
             this.Action_Panel.PerformLayout();
@@ -279,9 +309,12 @@ namespace NotNot
         private System.Windows.Forms.NotifyIcon NI;
         private System.Windows.Forms.ContextMenuStrip NI_Menu;
         private System.Windows.Forms.ToolStripMenuItem NI_Menu_Show;
-        private System.Windows.Forms.ToolStripSeparator NI_Menu_Separator;
         private System.Windows.Forms.ToolStripMenuItem NI_Menu_Close;
         private System.Windows.Forms.ToolStripMenuItem NI_Menu_Hide;
+        private System.Windows.Forms.ToolStripMenuItem NI_Menu_DragAndDrop;
+        private System.Windows.Forms.ToolStripSeparator NI_Menu_Separator1;
+        private System.Windows.Forms.ToolStripMenuItem Action_Menu_DragAndDrop;
+        private System.Windows.Forms.ToolStripSeparator NI_Menu_Separator3;
     }
 }
 

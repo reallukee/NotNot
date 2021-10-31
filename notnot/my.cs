@@ -67,6 +67,17 @@ namespace NotNot
                 // true
                 Form.FromMy(E.CommandLine[1]);
             }
+            else
+            {
+                // false
+                if (Form.Visible == false)
+                {
+                    // true
+                    Form.Visible = true;
+                }
+
+                Form.BringToFront();
+            }
         }
 
 
