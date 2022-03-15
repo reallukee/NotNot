@@ -85,7 +85,7 @@ Partial Class Viewer3
         '
         Me.Action_Menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(200, Byte), Integer))
         Me.Action_Menu.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Action_Menu.Font = New System.Drawing.Font("Segoe MDL2 Assets", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Action_Menu.Font = New System.Drawing.Font("Segoe Fluent Icons", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Action_Menu.GripMargin = New System.Windows.Forms.Padding(2)
         Me.Action_Menu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.Action_Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Action_Menu_Close, Me.Action_Menu_New, Me.Action_Menu_Open, Me.Action_Menu_Save, Me.Action_Menu_Clear})
@@ -113,7 +113,7 @@ Partial Class Viewer3
         Me.Action_Menu_New.Name = "Action_Menu_New"
         Me.Action_Menu_New.Padding = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Action_Menu_New.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
-        Me.Action_Menu_New.Size = New System.Drawing.Size(42, 45)
+        Me.Action_Menu_New.Size = New System.Drawing.Size(45, 45)
         Me.Action_Menu_New.Text = ""
         Me.Action_Menu_New.ToolTipText = "New (CTRL+ALT+N)"
         '
@@ -123,7 +123,7 @@ Partial Class Viewer3
         Me.Action_Menu_Open.Padding = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Action_Menu_Open.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.Action_Menu_Open.Size = New System.Drawing.Size(42, 45)
+        Me.Action_Menu_Open.Size = New System.Drawing.Size(45, 45)
         Me.Action_Menu_Open.Text = ""
         Me.Action_Menu_Open.ToolTipText = "Open (CTRL+ALT+O)"
         '
@@ -133,7 +133,7 @@ Partial Class Viewer3
         Me.Action_Menu_Save.Padding = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Action_Menu_Save.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.Action_Menu_Save.Size = New System.Drawing.Size(42, 45)
+        Me.Action_Menu_Save.Size = New System.Drawing.Size(45, 45)
         Me.Action_Menu_Save.Text = ""
         Me.Action_Menu_Save.ToolTipText = "Save (CTRL+ALT+S)"
         '
@@ -143,7 +143,7 @@ Partial Class Viewer3
         Me.Action_Menu_Clear.Padding = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Action_Menu_Clear.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Alt) _
             Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
-        Me.Action_Menu_Clear.Size = New System.Drawing.Size(42, 45)
+        Me.Action_Menu_Clear.Size = New System.Drawing.Size(45, 45)
         Me.Action_Menu_Clear.Text = ""
         Me.Action_Menu_Clear.ToolTipText = "Clear (CTRL+ALT+Q)"
         '
@@ -169,6 +169,7 @@ Partial Class Viewer3
         '
         'Viewers_Info
         '
+        Me.Viewers_Info.AllowDrop = True
         Me.Viewers_Info.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer), CType(CType(250, Byte), Integer))
         Me.Viewers_Info.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Viewers_Info.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
@@ -195,7 +196,7 @@ Partial Class Viewer3
         Me.CMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
         Me.CMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CMenu_Undo, Me.CMenu_Redo, Me.CMenu_Separator1, Me.CMenu_Cut, Me.CMenu_Copy, Me.CMenu_Paste, Me.CMenu_Delete, Me.CMenu_Separator2, Me.CMenu_SelectAll})
         Me.CMenu.Name = "CMenu"
-        Me.CMenu.Size = New System.Drawing.Size(246, 170)
+        Me.CMenu.Size = New System.Drawing.Size(246, 198)
         '
         'CMenu_Undo
         '

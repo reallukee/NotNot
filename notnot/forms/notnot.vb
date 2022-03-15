@@ -915,12 +915,7 @@
 
 
     Private Sub CMenu_ShowHide_Click(Sender As Object, E As EventArgs) Handles CMenu_ShowHide.Click
-
-    End Sub
-
-
-    Private Sub CMenu_DragAndDrop_Click(Sender As Object, E As EventArgs) Handles CMenu_DragAndDrop.Click
-
+        Visible = Not Visible
     End Sub
 
 

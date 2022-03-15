@@ -235,7 +235,7 @@ Public Class Viewer3
     End Function
 
 
-    Private Sub Action_Menu_Open_Click(sender As Object, e As EventArgs) Handles Action_Menu_Open.Click
+    Private Sub Action_Menu_Open_Click(Sender As Object, E As EventArgs) Handles Action_Menu_Open.Click
         If Ofd.ShowDialog() = DialogResult.OK Then
             If Path.GetExtension(Ofd.FileName) = ".rtf" Then
                 If OpenRTFFile(Ofd.FileName) = True Then
@@ -294,9 +294,9 @@ Public Class Viewer3
             ActiveControl = TextBoxViewer
             Viewers_Info.Visible = False
             Viewers_Info.Enabled = False
-        Else
-            TextBoxViewer.Text = ""
         End If
+
+        TextBoxViewer.Text = ""
     End Sub
 
 
@@ -339,6 +339,122 @@ Public Class Viewer3
             CMenu_Redo.Visible = False
         Else
             CMenu_Redo.Visible = True
+        End If
+    End Sub
+
+
+    Private Sub Viewers_Info_DragEnter(Sender As Object, E As DragEventArgs) Handles Viewers_Info.DragEnter
+        Viewers_Info.BackColor = Color.FromArgb(255, 245, 225)
+        E.Effect = DragDropEffects.Copy
+
+        If E.Data.GetData(DataFormats.FileDrop) IsNot Nothing Then
+            Dim File As String() = E.Data.GetData(DataFormats.FileDrop)
+            Viewers_Info.Text = Path.GetFileName(File(0))
+        End If
+    End Sub
+
+
+    Private Sub Viewers_Info_DragLeave(Sender As Object, E As EventArgs) Handles Viewers_Info.DragLeave
+        Viewers_Info.BackColor = Color.FromArgb(250, 250, 250)
+        Viewers_Info.Text = $"Drag and Drop{vbCrLf}or{vbCrLf}Double Click"
+    End Sub
+
+
+    Private Sub Viewers_Info_DragDrop(Sender As Object, E As DragEventArgs) Handles Viewers_Info.DragDrop
+        Dim File As String() = E.Data.GetData(DataFormats.FileDrop)
+
+        If Path.GetExtension(File(0)) = ".rtf" Then
+            If OpenRTFFile(File(0)) = True Then
+                Viewers_Info.Visible = False
+                Viewers_Info.Enabled = False
+            End If
+        Else
+            If OpenImageFile(File(0)) = False Then
+                If OpenTXTFile(File(0)) = True Then
+                    Viewers_Info.Visible = False
+                    Viewers_Info.Enabled = False
+                End If
+            Else
+                Viewers_Info.Visible = False
+                Viewers_Info.Enabled = False
+            End If
+        End If
+
+        Viewers_Info.BackColor = Color.FromArgb(250, 250, 250)
+        Viewers_Info.Text = $"Drag and Drop{vbCrLf}or{vbCrLf}Double Click"
+    End Sub
+
+
+    Private Sub CMenu_Undo_Click(Sender As Object, E As EventArgs) Handles CMenu_Undo.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.Undo()
+        Else
+            Dim T As TextBox = CMenu.SourceControl
+            T.Undo()
+        End If
+    End Sub
+
+
+    Private Sub CMenu_Redo_Click(Sender As Object, E As EventArgs) Handles CMenu_Redo.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.Redo()
+        End If
+    End Sub
+
+
+    Private Sub CMenu_Cut_Click(Sender As Object, E As EventArgs) Handles CMenu_Cut.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.Cut()
+        Else
+            Dim T As TextBox = CMenu.SourceControl
+            T.Cut()
+        End If
+    End Sub
+
+
+    Private Sub CMenu_Copy_Click(Sender As Object, E As EventArgs) Handles CMenu_Copy.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.Copy()
+        Else
+            Dim T As TextBox = CMenu.SourceControl
+            T.Copy()
+        End If
+    End Sub
+
+
+    Private Sub CMenu_Paste_Click(Sender As Object, E As EventArgs) Handles CMenu_Paste.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.Paste()
+        Else
+            Dim T As TextBox = CMenu.SourceControl
+            T.Paste()
+        End If
+    End Sub
+
+
+    Private Sub CMenu_Delete_Click(Sender As Object, E As EventArgs) Handles CMenu_Delete.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.SelectedText = ""
+        Else
+            Dim T As TextBox = CMenu.SourceControl
+            T.SelectedText = ""
+        End If
+    End Sub
+
+
+    Private Sub CMenu_SelectAll_Click(Sender As Object, E As EventArgs) Handles CMenu_SelectAll.Click
+        If TypeOf CMenu.SourceControl Is RichTextBox Then
+            Dim T As RichTextBox = CMenu.SourceControl
+            T.SelectAll()
+        Else
+            Dim T As TextBox = CMenu.SourceControl
+            T.SelectAll()
         End If
     End Sub
 

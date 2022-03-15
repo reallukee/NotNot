@@ -27,19 +27,18 @@ Partial Class NotNot
         Me.Separator_Bottom = New System.Windows.Forms.Panel()
         Me.Action_Panel = New System.Windows.Forms.Panel()
         Me.Action_Menu = New System.Windows.Forms.MenuStrip()
+        Me.Action_Menu_AddViewer = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Action_Menu_AlwaysOnTop = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Action_Menu_FullScreen = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Action_Menu_SquareMode = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Action_Menu_LessOpacity = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Action_Menu_MoreOpacity = New System.Windows.Forms.ToolStripMenuItem()
         Me.Expf = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.Expf_NotNot = New System.Windows.Forms.ToolStripMenuItem()
         Me.Expf_Separator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.Expf_CenterOnScreen = New System.Windows.Forms.ToolStripMenuItem()
         Me.Expf_BetterSize = New System.Windows.Forms.ToolStripMenuItem()
         Me.Expf_SuperExit = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_AddViewer = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_DragAndDrop = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_AlwaysOnTop = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_FullScreen = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_SquareMode = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_LessOpacity = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Action_Menu_MoreOpacity = New System.Windows.Forms.ToolStripMenuItem()
         Me.Viewers = New System.Windows.Forms.Panel()
         Me.Viewers_Info = New System.Windows.Forms.Label()
         Me.Info_Panel = New System.Windows.Forms.Panel()
@@ -48,7 +47,6 @@ Partial Class NotNot
         Me.CMenu = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CMenu_SquareMode = New System.Windows.Forms.ToolStripMenuItem()
         Me.CMenu_ShowHide = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CMenu_DragAndDrop = New System.Windows.Forms.ToolStripMenuItem()
         Me.CMenu_Separator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.CMenu_Close = New System.Windows.Forms.ToolStripMenuItem()
         Me.SquareMode_Panel = New System.Windows.Forms.Panel()
@@ -89,12 +87,11 @@ Partial Class NotNot
         'Action_Menu
         '
         Me.Action_Menu.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(150, Byte), Integer))
-        Me.Action_Menu.ContextMenuStrip = Me.Expf
         Me.Action_Menu.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Action_Menu.Font = New System.Drawing.Font("Segoe Fluent Icons", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Action_Menu.GripMargin = New System.Windows.Forms.Padding(2)
         Me.Action_Menu.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.Action_Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Action_Menu_AddViewer, Me.Action_Menu_DragAndDrop, Me.Action_Menu_AlwaysOnTop, Me.Action_Menu_FullScreen, Me.Action_Menu_SquareMode, Me.Action_Menu_LessOpacity, Me.Action_Menu_MoreOpacity})
+        Me.Action_Menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Action_Menu_AddViewer, Me.Action_Menu_AlwaysOnTop, Me.Action_Menu_FullScreen, Me.Action_Menu_SquareMode, Me.Action_Menu_LessOpacity, Me.Action_Menu_MoreOpacity})
         Me.Action_Menu.Location = New System.Drawing.Point(0, 0)
         Me.Action_Menu.Name = "Action_Menu"
         Me.Action_Menu.Padding = New System.Windows.Forms.Padding(6, 3, 6, 3)
@@ -102,67 +99,15 @@ Partial Class NotNot
         Me.Action_Menu.Size = New System.Drawing.Size(1132, 60)
         Me.Action_Menu.TabIndex = 0
         '
-        'Expf
-        '
-        Me.Expf.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Expf.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.Expf.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Expf_NotNot, Me.Expf_Separator1, Me.Expf_CenterOnScreen, Me.Expf_BetterSize, Me.Expf_SuperExit})
-        Me.Expf.Name = "Expf"
-        Me.Expf.Size = New System.Drawing.Size(318, 126)
-        '
-        'Expf_NotNot
-        '
-        Me.Expf_NotNot.Name = "Expf_NotNot"
-        Me.Expf_NotNot.Size = New System.Drawing.Size(317, 22)
-        Me.Expf_NotNot.Text = "NotNot Dev Menu"
-        '
-        'Expf_Separator1
-        '
-        Me.Expf_Separator1.Name = "Expf_Separator1"
-        Me.Expf_Separator1.Size = New System.Drawing.Size(314, 6)
-        '
-        'Expf_CenterOnScreen
-        '
-        Me.Expf_CenterOnScreen.Name = "Expf_CenterOnScreen"
-        Me.Expf_CenterOnScreen.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.Expf_CenterOnScreen.Size = New System.Drawing.Size(317, 22)
-        Me.Expf_CenterOnScreen.Text = "Center on Screen"
-        '
-        'Expf_BetterSize
-        '
-        Me.Expf_BetterSize.Name = "Expf_BetterSize"
-        Me.Expf_BetterSize.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.Expf_BetterSize.Size = New System.Drawing.Size(317, 22)
-        Me.Expf_BetterSize.Text = "Better Size"
-        '
-        'Expf_SuperExit
-        '
-        Me.Expf_SuperExit.Name = "Expf_SuperExit"
-        Me.Expf_SuperExit.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
-            Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
-        Me.Expf_SuperExit.Size = New System.Drawing.Size(317, 22)
-        Me.Expf_SuperExit.Text = "Super Exit"
-        '
         'Action_Menu_AddViewer
         '
+        Me.Action_Menu_AddViewer.Font = New System.Drawing.Font("Segoe MDL2 Assets", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.Action_Menu_AddViewer.Name = "Action_Menu_AddViewer"
         Me.Action_Menu_AddViewer.Padding = New System.Windows.Forms.Padding(6, 3, 6, 3)
         Me.Action_Menu_AddViewer.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
         Me.Action_Menu_AddViewer.Size = New System.Drawing.Size(45, 54)
         Me.Action_Menu_AddViewer.Text = ""
         Me.Action_Menu_AddViewer.ToolTipText = "Add Viewer (CTRL+N)"
-        '
-        'Action_Menu_DragAndDrop
-        '
-        Me.Action_Menu_DragAndDrop.Enabled = False
-        Me.Action_Menu_DragAndDrop.Font = New System.Drawing.Font("Segoe MDL2 Assets", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point)
-        Me.Action_Menu_DragAndDrop.Name = "Action_Menu_DragAndDrop"
-        Me.Action_Menu_DragAndDrop.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.Action_Menu_DragAndDrop.Size = New System.Drawing.Size(44, 54)
-        Me.Action_Menu_DragAndDrop.Text = ""
-        Me.Action_Menu_DragAndDrop.ToolTipText = "Drag and Drop (CTRL+D)"
         '
         'Action_Menu_AlwaysOnTop
         '
@@ -213,6 +158,49 @@ Partial Class NotNot
         Me.Action_Menu_MoreOpacity.Text = ""
         Me.Action_Menu_MoreOpacity.ToolTipText = "More Opacity (CTRL+UP)"
         '
+        'Expf
+        '
+        Me.Expf.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
+        Me.Expf.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.Expf.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.Expf_NotNot, Me.Expf_Separator1, Me.Expf_CenterOnScreen, Me.Expf_BetterSize, Me.Expf_SuperExit})
+        Me.Expf.Name = "Expf"
+        Me.Expf.Size = New System.Drawing.Size(318, 98)
+        '
+        'Expf_NotNot
+        '
+        Me.Expf_NotNot.Name = "Expf_NotNot"
+        Me.Expf_NotNot.Size = New System.Drawing.Size(317, 22)
+        Me.Expf_NotNot.Text = "NotNot Dev Menu"
+        '
+        'Expf_Separator1
+        '
+        Me.Expf_Separator1.Name = "Expf_Separator1"
+        Me.Expf_Separator1.Size = New System.Drawing.Size(314, 6)
+        '
+        'Expf_CenterOnScreen
+        '
+        Me.Expf_CenterOnScreen.Name = "Expf_CenterOnScreen"
+        Me.Expf_CenterOnScreen.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
+        Me.Expf_CenterOnScreen.Size = New System.Drawing.Size(317, 22)
+        Me.Expf_CenterOnScreen.Text = "Center on Screen"
+        '
+        'Expf_BetterSize
+        '
+        Me.Expf_BetterSize.Name = "Expf_BetterSize"
+        Me.Expf_BetterSize.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.Expf_BetterSize.Size = New System.Drawing.Size(317, 22)
+        Me.Expf_BetterSize.Text = "Better Size"
+        '
+        'Expf_SuperExit
+        '
+        Me.Expf_SuperExit.Name = "Expf_SuperExit"
+        Me.Expf_SuperExit.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
+            Or System.Windows.Forms.Keys.F4), System.Windows.Forms.Keys)
+        Me.Expf_SuperExit.Size = New System.Drawing.Size(317, 22)
+        Me.Expf_SuperExit.Text = "Super Exit"
+        '
         'Viewers
         '
         Me.Viewers.Controls.Add(Me.Viewers_Info)
@@ -262,45 +250,38 @@ Partial Class NotNot
         Me.Version.ForeColor = System.Drawing.Color.Gray
         Me.Version.Margin = New System.Windows.Forms.Padding(10, 4, 10, 4)
         Me.Version.Name = "Version"
-        Me.Version.Size = New System.Drawing.Size(146, 42)
-        Me.Version.Text = "NotNot 1.3.0-080322"
+        Me.Version.Size = New System.Drawing.Size(93, 42)
+        Me.Version.Text = "NotNot 1.3.0"
         '
         'CMenu
         '
         Me.CMenu.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
         Me.CMenu.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.CMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CMenu_SquareMode, Me.CMenu_ShowHide, Me.CMenu_DragAndDrop, Me.CMenu_Separator1, Me.CMenu_Close})
+        Me.CMenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CMenu_SquareMode, Me.CMenu_ShowHide, Me.CMenu_Separator1, Me.CMenu_Close})
         Me.CMenu.Name = "CMenu"
-        Me.CMenu.Size = New System.Drawing.Size(173, 98)
+        Me.CMenu.Size = New System.Drawing.Size(211, 104)
         '
         'CMenu_SquareMode
         '
         Me.CMenu_SquareMode.Name = "CMenu_SquareMode"
-        Me.CMenu_SquareMode.Size = New System.Drawing.Size(172, 22)
+        Me.CMenu_SquareMode.Size = New System.Drawing.Size(210, 22)
         Me.CMenu_SquareMode.Text = "Square Mode"
         '
         'CMenu_ShowHide
         '
         Me.CMenu_ShowHide.Name = "CMenu_ShowHide"
-        Me.CMenu_ShowHide.Size = New System.Drawing.Size(172, 22)
+        Me.CMenu_ShowHide.Size = New System.Drawing.Size(210, 22)
         Me.CMenu_ShowHide.Text = "Show/Hide"
-        '
-        'CMenu_DragAndDrop
-        '
-        Me.CMenu_DragAndDrop.Enabled = False
-        Me.CMenu_DragAndDrop.Name = "CMenu_DragAndDrop"
-        Me.CMenu_DragAndDrop.Size = New System.Drawing.Size(172, 22)
-        Me.CMenu_DragAndDrop.Text = "Drag and Drop"
         '
         'CMenu_Separator1
         '
         Me.CMenu_Separator1.Name = "CMenu_Separator1"
-        Me.CMenu_Separator1.Size = New System.Drawing.Size(169, 6)
+        Me.CMenu_Separator1.Size = New System.Drawing.Size(207, 6)
         '
         'CMenu_Close
         '
         Me.CMenu_Close.Name = "CMenu_Close"
-        Me.CMenu_Close.Size = New System.Drawing.Size(172, 22)
+        Me.CMenu_Close.Size = New System.Drawing.Size(210, 22)
         Me.CMenu_Close.Text = "Close"
         '
         'SquareMode_Panel
@@ -373,7 +354,7 @@ Partial Class NotNot
         Me.MinimumSize = New System.Drawing.Size(550, 550)
         Me.Name = "NotNot"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "NotNot 1.3.0-080322"
+        Me.Text = "NotNot 1.3.0"
         Me.Action_Panel.ResumeLayout(False)
         Me.Action_Panel.PerformLayout()
         Me.Action_Menu.ResumeLayout(False)
@@ -416,11 +397,9 @@ Partial Class NotNot
     Friend WithEvents SquareMode_Menu As MenuStrip
     Friend WithEvents SquareMode_Menu_Disable As ToolStripMenuItem
     Friend WithEvents Action_Menu_SquareMode As ToolStripMenuItem
-    Friend WithEvents Action_Menu_DragAndDrop As ToolStripMenuItem
     Friend WithEvents Separator_Top As Panel
     Friend WithEvents CMenu_SquareMode As ToolStripMenuItem
     Friend WithEvents CMenu_ShowHide As ToolStripMenuItem
-    Friend WithEvents CMenu_DragAndDrop As ToolStripMenuItem
     Friend WithEvents Expf_NotNot As ToolStripMenuItem
     Friend WithEvents Expf_Separator1 As ToolStripSeparator
     Friend WithEvents Expf_SuperExit As ToolStripMenuItem
